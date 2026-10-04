@@ -20,6 +20,13 @@ before making repository-ownership or task-routing proposals.
 
 ## Current position
 
+- 2026-10-04 Lab review/publication direction: the operator authorized the
+  dedicated Lab maintainer to merge future PRs when substantive review and
+  required checks pass for the actual head, stopping only for blockers. Another
+  confirmation is unnecessary. Contributors continue to submit PRs for Lab
+  review. Next action: follow CONTRIBUTING.md section 6 and verify the resulting
+  live publication after each merge.
+
 - 2026-10-03 footer correction (Lab-site/release lane): the operator rejected
   replacing the footer's Lab heading. Agent-Art-Lab is restored as the footer
   home link, with the slogan and reference links beneath it. The separate
