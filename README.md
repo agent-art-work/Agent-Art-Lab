@@ -28,6 +28,8 @@ site registration, checks and review submission.
 2. Read [handoff and current status](HANDOFF.md).
 3. Browse the [THOUGHT collection](projects/thought/README.md), our first case.
    The [Pulse collection](projects/pulse/README.md) studies document access for agents.
+   The [Agent handoff collection](projects/agent-handoff/README.md) examines
+   reading invitations and public knowledge access across websites.
 4. Use the [project intake](templates/PROJECT.md) and [study template](templates/STUDY.md)
    for a new inquiry.
 
@@ -49,7 +51,7 @@ Repository visibility is public. No reuse license has been selected. See the
 | --- | --- |
 | [Guidance](GUIDANCE.md) | Shared foundations and methods, not a fixed creative recipe. |
 | [Research notes](research/README.md) | Sources, what they suggest, and where transfer is unsupported. |
-| Project collections: [THOUGHT](projects/thought/README.md), [Pulse](projects/pulse/README.md) | Project-specific studies, observations and evidence limits. |
+| Project collections: [THOUGHT](projects/thought/README.md), [Pulse](projects/pulse/README.md), [Agent handoff](projects/agent-handoff/README.md) | Project-specific studies, observations and evidence limits. |
 | [Findings register](findings/REGISTER.md) | Observations and scoped provisional practices; no automatic promotion to theory. |
 | [Templates](templates/STUDY.md) | Lightweight records adapted to the work, including retrospective diagnosis. |
 | [Boundaries](docs/BOUNDARIES.md) | Lab, project tooling, live trials, canaries and releases have different aims. |

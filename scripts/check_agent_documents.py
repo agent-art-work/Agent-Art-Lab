@@ -24,6 +24,7 @@ ROUTES = {
     "templates/STUDY.md": "templates/study.html",
     "projects/thought/README.md": "projects/thought/",
     "projects/pulse/README.md": "projects/pulse/",
+    "projects/agent-handoff/README.md": "projects/agent-handoff/",
 }
 
 
@@ -42,7 +43,7 @@ def source_catalogue(root):
     catalogue = json.loads((root / "site/studies.json").read_text(encoding="utf-8"))
     for study in catalogue:
         source = study["source"]
-        if not re.fullmatch(r"projects/(?:thought|pulse)/studies/[A-Za-z0-9_-]+\.md", source):
+        if not re.fullmatch(r"projects/(?:thought|pulse|agent-handoff)/studies/[A-Za-z0-9_-]+\.md", source):
             raise ValueError(f"study source is outside the publication allowlist: {source!r}")
         if source in routes:
             raise ValueError(f"duplicate study source: {source}")

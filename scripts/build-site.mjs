@@ -32,9 +32,10 @@ const routes = new Map([
   ['templates/STUDY.md', 'templates/study.html'],
   ['projects/thought/README.md', 'projects/thought/index.html'],
   ['projects/pulse/README.md', 'projects/pulse/index.html'],
+  ['projects/agent-handoff/README.md', 'projects/agent-handoff/index.html'],
   ...studies.map(study => [study.source, study.source.replace(/\.md$/, '.html')]),
 ]);
-const actualStudies = ['thought', 'pulse'].flatMap(project =>
+const actualStudies = ['thought', 'pulse', 'agent-handoff'].flatMap(project =>
   readdirSync(path.join(root, 'projects', project, 'studies')).filter(file => file.endsWith('.md'))
     .map(file => `projects/${project}/studies/${file}`));
 if (new Set(studies.map(s => s.source)).size !== studies.length ||

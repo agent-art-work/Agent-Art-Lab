@@ -1,5 +1,14 @@
 [
   {
+    "source": "projects/agent-handoff/studies/2026-10-04-copy-prompt-reading-handoff.md",
+    "title": "From copy prompt to agent handoff: lessons from four websites",
+    "project": "Agent handoff",
+    "date": "2026-10-04",
+    "status": "Working note",
+    "evidence": "Source inspection and reported browser/prototype checks; some snapshots unavailable",
+    "summary": "Four reading invitations motivate a small shared reference implementation with author-owned prompts and explicit access, evidence and failure rules. Two isolated pilots passed bounded checks; general gains remain unmeasured."
+  },
+  {
     "source": "projects/thought/studies/2026-10-01-native-explicit-execution.md",
     "title": "Native tools and explicit prerequisites",
     "project": "THOUGHT",
