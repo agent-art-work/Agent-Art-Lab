@@ -1,11 +1,12 @@
 # From copy prompt to agent handoff: lessons from four websites
 
-- Record date: 2026-10-04; working note, revision 2.
+- Record date: 2026-10-04; working note, revision 3.
 - Project: Agent handoff; technical infrastructure for public knowledge access.
 - Method: four-site source inspection, live prompt-panel observations and local
   reference-prototype preparation. No comparative agent trial.
 - Status: working note; local reference prototype and two isolated pilots
-  completed, with publication and package distribution still pending.
+  completed. The dated reassessment below retains the prototype as supporting
+  material and sets aside a separate library/repository for now.
 
 ## The question behind the button
 
@@ -217,6 +218,35 @@ also needs a clean-install and consumer-distribution check. Retain incompatibili
 and revise the seam as other sites adopt it. Further agent-performance claims
 would need a separately defined evaluation with declared tasks, surfaces,
 measures and scope. No new live trial follows from this working note.
+
+## Reassessment, 2026-10-04: retain the pattern and reference example
+
+After reviewing the prototype, the operator questioned whether a separate
+repository or library was necessary and agreed to develop the broader design
+lessons as another article. This addition supersedes the publication and
+package-distribution next action above. The preparation, access correction and
+reported prototype checks remain part of the record.
+
+The pilots show that a shared DOM adapter and React hook can fit two existing
+sites. They leave prompts, loading, disclosure/session behavior, document
+schemas and evidence rules with those sites. The replaced clipboard handlers
+were small, while a maintained library would add an API, dependency integration,
+version updates and release work. The checks establish the exercised behavior;
+they do not establish that shared maintenance offsets those costs.
+
+The current choice is therefore a Lab article and a small reference example,
+with useful fixes considered within each website's own development. The local
+prototype is retained as supporting material. A separate implementation
+repository and package release are not currently pursued; visibility and
+licensing are no longer the next decision. This choice does not apply the pilot
+patches or change any live site.
+
+The broader [agent-friendly environments note](2026-10-04-agent-friendly-environments.md)
+develops the Lab's existing lessons from native tools, complete document access
+and explicit completion checks. Revisit shared tooling if recurring changes
+across sites make a common dependency's maintenance value concrete. There is
+no general finding that libraries are unnecessary or that simpler interfaces
+always improve agent performance.
 
 [signatures-prompt]: https://github.com/agent-art-work/Agent-Art-signatures.gallery/blob/ee48505b02cbe30f7ed0e86c6750e16988f297f2/src/openMint/aboutReadingPrompt.ts
 [signatures-index]: https://github.com/agent-art-work/Agent-Art-signatures.gallery/blob/ee48505b02cbe30f7ed0e86c6750e16988f297f2/src/openMint/agentDocuments.ts

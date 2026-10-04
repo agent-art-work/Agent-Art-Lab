@@ -29,7 +29,7 @@ site registration, checks and review submission.
 3. Browse the [THOUGHT collection](projects/thought/README.md), our first case.
    The [Pulse collection](projects/pulse/README.md) studies document access for agents.
    The [Agent handoff collection](projects/agent-handoff/README.md) examines
-   reading invitations and public knowledge access across websites.
+   reading invitations and broader agent-friendly environments.
 4. Use the [project intake](templates/PROJECT.md) and [study template](templates/STUDY.md)
    for a new inquiry.
 
