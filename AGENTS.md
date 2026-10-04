@@ -61,6 +61,18 @@ follow [CONTRIBUTING.md](CONTRIBUTING.md) for the complete article-to-PR procedu
 - Do not create a remote, push, change visibility, choose a license, launch a new
   task or enroll services without operator direction.
 
+## Standing Lab merge direction
+
+On 2026-10-04, the operator authorized the dedicated Lab maintainer to merge
+future Lab PRs when validation passes, without another confirmation. Review
+scope, evidence, privacy, rights and integration, and verify the required checks
+against the actual PR head. If it changes, review and validate the new revision.
+Stop and report blockers; automated checks alone are insufficient.
+
+Contributors still submit PRs through [CONTRIBUTING.md](CONTRIBUTING.md).
+This direction covers the resulting Lab publication, not unrelated account,
+project or release actions. Verify deployment and live content after merging.
+
 ## Handoff and reporting
 
 - State the lane: Lab establishment, project study, product fix or release.

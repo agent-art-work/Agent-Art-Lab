@@ -197,9 +197,16 @@ same branch/PR. Do not enable auto-merge or merge as part of contribution alone.
 
 ## 6. Lab review and publication
 
-The Lab maintainer/operator reviews the article's scope, evidence, rights and
-checks, then merges when authorized. The `Publish reading site` workflow builds
-and checks PRs; it does not deploy them or provide a hosted PR preview. A merge
+The operator authorized the dedicated Lab maintainer on 2026-10-04 to merge
+future Lab PRs once validation passes, without asking again. Validation includes
+substantive review of scope, evidence, privacy, rights and integration, plus all
+required checks against the actual PR head. If the head changes, review the
+changes and validate that revision before merging. Stop and report blockers;
+passing automated checks alone is insufficient. This standing direction does
+not authorize contributing agents to merge their own submissions.
+
+The `Publish reading site` workflow builds and checks PRs; it does not deploy
+them or provide a hosted PR preview. A merge
 into `main` triggers a build and GitHub Pages deployment to
 [agentart.work](https://agentart.work/). Opening or approving a PR is not evidence
 that deployment finished.
