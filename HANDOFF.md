@@ -29,9 +29,12 @@ before making repository-ownership or task-routing proposals.
   narrowly scoped Actions event policy, manual recovery and phone settings
   are documented in CONTRIBUTING.md section 6. Assignment is not review or
   proof of phone delivery, and this does not wake a desktop agent session.
-  All 57 local tests and the 24-page/586-link site check passed. Phone receipt
-  remains unconfirmed. Next action: inspect the notification workflow run and
-  PR assignees, and confirm device receipt separately with the operator.
+  All 57 local tests and the 24-page/586-link site check passed. Opening
+  [PR #7](https://github.com/agent-art-work/Agent-Art-Lab/pull/7) triggered a
+  successful notification run; the assignment event identifies
+  `github-actions[bot]` as assigner and `inshell-art` as assignee. Phone receipt
+  remains unconfirmed. Next action: confirm device receipt with the operator;
+  use the documented phone settings and manual recovery if needed.
 
 - 2026-10-04 Lab review/publication direction: the operator authorized the
   dedicated Lab maintainer to merge future PRs when substantive review and
