@@ -217,6 +217,36 @@ any deployment or retrieval failure separately from PR/merge status. Roll back a
 bad publication by reverting its source commit through the same reviewed path.
 Publication does not transfer project ownership or change repository licensing.
 
+### PR notifications for the maintainer
+
+`Notify Lab maintainer of pull requests` assigns newly opened PRs targeting
+`main` (including drafts) to `inshell-art` through GitHub Actions. Assignment
+routes the PR to the operator; it does not mean review passed. Existing assignees are preserved. An already
+assigned PR produces no additional assignment notification. PRs created using
+another workflow's `GITHUB_TOKEN` do not trigger this workflow automatically;
+use the manual recovery below for those PRs.
+
+GitHub Mobile supports assignment pushes. Sign in as `inshell-art`, enable
+assignment notifications in the app's notification settings, and allow phone
+notifications. Working hours and device settings can delay delivery. See
+[GitHub's notification settings](https://docs.github.com/en/subscriptions-and-notifications/get-started/configuring-notifications).
+A successful workflow confirms assignment, not receipt on a phone. This does
+not wake the desktop Lab chat or merge anything; send the PR link to the Lab
+maintainer session for review under the standing direction above.
+
+The notifier runs trusted default-branch code with only `pull-requests: write`.
+It never checks out or executes contributor code or downloads PR artifacts.
+The repository Actions policy **Lab PR notification events** targets only
+`.github/workflows/pr-notifications.yml`, allowing `pull_request_target` and
+`workflow_dispatch`; keep that allowance scoped when maintaining the workflow.
+
+To test or recover a missed assignment, run **Notify Lab maintainer of pull
+requests** from Actions on `main`, supplying an existing PR number. Closed or
+merged PRs are accepted for this manual test. It sends a real assignment when
+needed, so do not unassign/reassign just to repeat a push. Inspect the run and PR
+assignees, then confirm receipt on the phone separately. Disable this workflow
+in Actions to stop automatic assignments.
+
 ## A request to give another agent
 
 ```text
