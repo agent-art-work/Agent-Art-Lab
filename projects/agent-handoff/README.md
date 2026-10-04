@@ -22,9 +22,10 @@ Agent Art projects; it proposes no artwork or claim of intentional participation
 - **Authority:** this preparation covers a local reference prototype, isolated
   pilot integrations and a reviewable Lab article. It initiates no wallet action,
   paid assessment, publication, deployment or live agent trial.
-- **Evidence access:** public source links are pinned in the article. Local
-  browser and check results are reported with their scope. Private transcripts
-  and operator configuration are outside this record.
+- **Evidence access:** source snapshot identities and public-access limits are
+  recorded in the article. Some cited snapshots are unavailable publicly. Local
+  browser and check results are reported with their scope; private transcripts
+  and operator configuration remain outside this record.
 
 ## Articles and working notes
 

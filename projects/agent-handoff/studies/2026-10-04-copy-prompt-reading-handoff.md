@@ -1,6 +1,6 @@
 # From copy prompt to agent handoff: lessons from four websites
 
-- Record date: 2026-10-04; working note, revision 1.
+- Record date: 2026-10-04; working note, revision 2.
 - Project: Agent handoff; technical infrastructure for public knowledge access.
 - Method: four-site source inspection, live prompt-panel observations and local
   reference-prototype preparation. No comparative agent trial.
@@ -26,17 +26,26 @@ that an agent participated at the level of intention in an artwork.
 
 ## What was inspected
 
-The source review used the following local Git snapshots. These links pin
-inspectable source; they do not establish that every live response matched the
-commit. Live browser observations covered the public prompt panels, not a
-complete served-byte comparison or an agent's subsequent behavior.
+The contributing agent inspected the following local Git snapshots. The
+original preparation described the linked snapshots as publicly inspectable;
+the dated access correction below supersedes that description. Live browser
+observations covered the public prompt panels, not a complete served-byte
+comparison or an agent's subsequent behavior.
 
-| Site and inspected snapshot | Relevant public source | What it shows |
+| Site and inspected snapshot | Source references and access | What it shows |
 | --- | --- | --- |
-| Signatures Gallery, `ee48505b02cbe30f7ed0e86c6750e16988f297f2` | [Reading invitation][signatures-prompt], [public index][signatures-index], [copy behavior][signatures-copy] | A reading invitation distinguishes documented drawing rules, interpretation and Provenance. The index separately identifies reading, preview and assessment instruction texts. Copy failure opens and selects the prompt. |
+| Signatures Gallery, `ee48505b02cbe30f7ed0e86c6750e16988f297f2` | [Reading invitation][signatures-prompt], [public index][signatures-index], [copy behavior][signatures-copy] (recorded URLs; snapshot unavailable publicly) | A reading invitation distinguishes documented drawing rules, interpretation and Provenance. The index separately identifies reading, preview and assessment instruction texts. Copy failure opens and selects the prompt. |
 | Pulse, `32adfe39e1bf775f387ddab698780f256ed0cc81` | [Prompt][pulse-prompt], [download contract][pulse-format], [browser controls][pulse-client] | A prompt loaded on disclosure asks for complete saved sources through a known index. It separates static reading from the playground, RPC and wallet actions, and gives explicit recovery and citation rules. |
-| Inshell, `2cc042d51d4d0c88d9b4823485fcceac0c885ec1` | [Prompt authoring][inshell-prompt], [Docs component][inshell-client], [public index][inshell-index] | A React interface points to an index with complete and focused reading modes, source locks and fact-specific evidence classes. The prompt asks the agent to report unavailable sources. |
+| Inshell, `2cc042d51d4d0c88d9b4823485fcceac0c885ec1` | [Prompt authoring][inshell-prompt], [Docs component][inshell-client], [public index][inshell-index] (recorded URLs; snapshot unavailable publicly) | A React interface points to an index with complete and focused reading modes, source locks and fact-specific evidence classes. The prompt asks the agent to report unavailable sources. |
 | Agent-Art-Lab, `baa848b83c8ebeda0112aed200bec2515f28f735` | [Access guide][lab-guide], [static packaging][lab-documents], [copy behavior][lab-copy] | Canonical Markdown supplies both the human pages and complete JSON documents. A native disclosure contains the full prompt without JavaScript; clipboard failure selects it for manual copying. |
+
+**Public-access correction, 2026-10-04:** maintainer checks received HTTP 404
+for the three pinned Signatures source URLs and three pinned Inshell source
+URLs. Both repositories were publicly visible, but their commit endpoints did
+not resolve the cited snapshots (HTTP 422). The six Pulse and Lab source URLs
+returned HTTP 200. Signatures and Inshell details therefore remain the
+contributing agent's local source-inspection report and cannot be independently
+checked at those public URLs. No replacement revision is assumed.
 
 These implementations are different contracts, not four interchangeable
 schemas. Signatures offers artistic orientation with explicit exclusions; Pulse

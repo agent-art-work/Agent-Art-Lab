@@ -5,7 +5,7 @@
     "project": "Agent handoff",
     "date": "2026-10-04",
     "status": "Working note",
-    "evidence": "Source inspection, browser observations and local prototype checks",
+    "evidence": "Source inspection and reported browser/prototype checks; some snapshots unavailable",
     "summary": "Four reading invitations motivate a small shared reference implementation with author-owned prompts and explicit access, evidence and failure rules. Two isolated pilots passed bounded checks; general gains remain unmeasured."
   },
   {
