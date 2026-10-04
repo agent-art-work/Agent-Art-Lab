@@ -1,0 +1,123 @@
+name: Notify Lab maintainer of pull requests
+
+on:
+  pull_request_target:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number to assign for a notification check
+        required: true
+        type: string
+
+permissions:
+  pull-requests: write
+
+concurrency:
+  group: pr-notification-${{ github.event.pull_request.number || inputs.pull_request }}
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    if: github.repository == 'agent-art-work/Agent-Art-Lab' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Assign the Lab maintainer
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import re
+          from urllib.error import HTTPError, URLError
+          from urllib.request import HTTPRedirectHandler, Request, build_opener
+
+          repository = "agent-art-work/Agent-Art-Lab"
+          assignee = "inshell-art"
+          event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+          event_repository = event.get("repository", {})
+          if (os.environ.get("GITHUB_REPOSITORY") != repository
+                  or event_repository.get("full_name") != repository
+                  or event_repository.get("default_branch") != "main"
+                  or os.environ.get("GITHUB_REF") != "refs/heads/main"):
+              raise SystemExit("This notifier must run from the Lab's default branch.")
+
+          manual = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
+          if manual:
+              raw_number = event.get("inputs", {}).get("pull_request")
+              if not isinstance(raw_number, str) or not re.fullmatch(r"[1-9][0-9]*", raw_number):
+                  raise SystemExit("pull_request must be a positive integer.")
+              number = int(raw_number)
+          elif os.environ.get("GITHUB_EVENT_NAME") == "pull_request_target" and event.get("action") == "opened":
+              number = event.get("number")
+              if type(number) is not int or number < 1:
+                  raise SystemExit("The opened event has no valid pull request number.")
+          else:
+              raise SystemExit("Unsupported notification event.")
+
+          token = os.environ.get("GH_TOKEN")
+          if not token:
+              raise SystemExit("The workflow token is unavailable.")
+
+          class NoRedirects(HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+
+          client = build_opener(NoRedirects())
+
+          def api(method, route, body=None):
+              request = Request(
+                  "https://api.github.com/repos/" + repository + route,
+                  data=None if body is None else json.dumps(body).encode("utf-8"),
+                  method=method,
+                  headers={
+                      "Authorization": "Bearer " + token,
+                      "Accept": "application/vnd.github+json",
+                      "Content-Type": "application/json",
+                      "X-GitHub-Api-Version": "2022-11-28",
+                  },
+              )
+              try:
+                  with client.open(request, timeout=20) as response:
+                      result = json.load(response)
+              except HTTPError as error:
+                  status = error.code
+                  error.close()
+                  raise SystemExit(f"GitHub {method} failed with HTTP {status}; no automatic retry.") from None
+              except (URLError, OSError, ValueError):
+                  raise SystemExit(f"GitHub {method} failed or returned invalid JSON; no automatic retry.") from None
+              if not isinstance(result, dict):
+                  raise SystemExit("GitHub returned an unexpected response.")
+              return result
+
+          pull = api("GET", f"/pulls/{number}")
+          if (pull.get("number") != number
+                  or pull.get("base", {}).get("repo", {}).get("full_name") != repository):
+              raise SystemExit("Fetched pull request identity does not match the Lab target.")
+          if not manual and pull.get("state") != "open":
+              print(f"PR #{number} is already closed; no assignment or notification generated.")
+              raise SystemExit(0)
+
+          def assigned_users(item):
+              users = item.get("assignees")
+              if not isinstance(users, list) or any(
+                  not isinstance(user, dict) or not isinstance(user.get("login"), str) for user in users
+              ):
+                  raise SystemExit("GitHub returned an invalid assignee list.")
+              return {user["login"].casefold() for user in users}
+
+          before = assigned_users(pull)
+          if assignee in before:
+              print(f"PR #{number} already has {assignee} assigned; no new notification generated.")
+              raise SystemExit(0)
+          if len(before) >= 10:
+              raise SystemExit("The pull request already has ten assignees; existing assignments were preserved.")
+          result = api("POST", f"/issues/{number}/assignees", {"assignees": [assignee]})
+          after = assigned_users(result)
+          if result.get("number") != number or assignee not in after or not before.issubset(after):
+              raise SystemExit("Assignment was not confirmed with existing assignees preserved; inspect the PR before retrying.")
+          print(f"Assigned {assignee} to PR #{number}. Assignment is confirmed; phone delivery is not verified.")
+          PY
