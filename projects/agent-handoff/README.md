@@ -1,24 +1,27 @@
-# Agent handoff: public knowledge access
+# Agent handoff and agent-friendly environments
 
-This collection examines how a website gives a visitor's agent a readable,
-bounded handoff to public knowledge. It is technical infrastructure relevant to
-Agent Art projects; it proposes no artwork or claim of intentional participation.
+This collection examines how an environment gives an agent a simple, supported
+route from a person's task to a checkable result. Public reading handoffs are
+one concrete case. It is technical infrastructure relevant to Agent Art
+projects; it proposes no artwork or claim of intentional participation.
 
 ## Scope and ownership
 
-- **Question:** which repeated parts of four existing reading invitations can
-  become a small shared reference implementation without erasing project rules?
+- **Question:** how can supported tools, complete inputs and explicit contracts
+  reduce unnecessary mediation while retaining project rules and evidence?
 - **Materials:** public prompts, document indexes, clipboard interfaces and
-  source snapshots from Signatures Gallery, Pulse, Inshell and Agent-Art-Lab.
-- **Method:** source inspection, bounded browser observations and local prototype
-  checks. These do not constitute a comparative agent trial.
+  source snapshots from Signatures Gallery, Pulse, Inshell and Agent-Art-Lab;
+  the Lab's native-tool and simplified-document records.
+- **Method:** the reading-handoff case records source inspection, bounded browser
+  observations and local prototype checks. The broader article synthesizes
+  existing Lab records. Neither constitutes a comparative agent trial.
 - **Inherited practice:** distinguish acquisition from interpretation and task
   completion; make representations, prerequisites and failures explicit; retain
   source ownership and evidence limits.
 - **Implementation owner:** each website retains its source and release. The
-  separate proposed `agent-art-work/agent-handoff` repository would own the small
-  reference implementation; no remote repository or package release is
-  established by this collection.
+  local prototype remains supporting material. A separate implementation
+  repository/library was considered and set aside after operator review;
+  the dated reassessment in the original article preserves that decision.
 - **Authority:** this preparation covers a local reference prototype, isolated
   pilot integrations and a reviewable Lab article. It initiates no wallet action,
   paid assessment, publication, deployment or live agent trial.
@@ -31,9 +34,11 @@ Agent Art projects; it proposes no artwork or claim of intentional participation
 
 | Record | Status and limits |
 | --- | --- |
+| [What makes an environment agent-friendly?](studies/2026-10-04-agent-friendly-environments.md) | Working-note synthesis of existing native-tool, document-access and handoff records; practical review questions are proposed, and broader performance gains remain unmeasured. |
 | [From copy prompt to agent handoff: lessons from four websites](studies/2026-10-04-copy-prompt-reading-handoff.md) | Working note; a local reference implementation and two isolated pilots passed bounded checks. Source inspection, browser observations and reported implementation checks remain distinct; general reliability, comprehension and maintenance savings are unmeasured. |
 
-The local prototype and pilot checks are complete within the article's recorded
-scope. The next bounded action is to review the bundle and decide repository
-visibility, license and distribution. Clean-install and published-consumer checks
-remain for a package-release decision; no live migration follows from this record.
+The local prototype and pilot checks are complete within the original article's
+recorded scope. The current direction is articles and small reference examples,
+with project-specific fixes considered by their owners. Review the broader
+article's synthesis and retain counterevidence. No shared library release or
+live migration is part of this direction.

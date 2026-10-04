@@ -1,12 +1,21 @@
 [
   {
+    "source": "projects/agent-handoff/studies/2026-10-04-agent-friendly-environments.md",
+    "title": "What makes an environment agent-friendly?",
+    "project": "Agent handoff",
+    "date": "2026-10-04",
+    "status": "Working note",
+    "evidence": "Synthesis of existing Lab records; inherited evidence limits",
+    "summary": "Native tools, complete inputs and explicit prerequisites suggest a simple supported path to checkable results. The note proposes practical review questions; general performance gains remain unmeasured."
+  },
+  {
     "source": "projects/agent-handoff/studies/2026-10-04-copy-prompt-reading-handoff.md",
     "title": "From copy prompt to agent handoff: lessons from four websites",
     "project": "Agent handoff",
     "date": "2026-10-04",
     "status": "Working note",
     "evidence": "Source inspection and reported browser/prototype checks; some snapshots unavailable",
-    "summary": "Four reading invitations motivate a small shared reference implementation with author-owned prompts and explicit access, evidence and failure rules. Two isolated pilots passed bounded checks; general gains remain unmeasured."
+    "summary": "Four reading invitations led to a local prototype and two isolated pilots. A dated reassessment retains the pattern and reference example while setting aside a separate library; general gains remain unmeasured."
   },
   {
     "source": "projects/thought/studies/2026-10-01-native-explicit-execution.md",
