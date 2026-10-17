@@ -20,6 +20,21 @@ before making repository-ownership or task-routing proposals.
 
 ## Current position
 
+- 2026-10-17 protocol repository split (contributor documentation lane): the
+  operator selected the initially private
+  [agent-art-work/agent-art-protocol](https://github.com/agent-art-work/agent-art-protocol)
+  as the separate home for the candidate participation protocol and future
+  shared infrastructure/client integrations/conformance. README and the
+  organization notes route that work there; the Lab keeps research/publication,
+  and artworks keep implementation/release ownership. This contribution is a
+  pointer, not a new study, runtime, client qualification or private-material
+  publication. Submit it through contributor PR review; it is not live Lab
+  publication until merged. Next protocol work remains design of a concrete
+  curator-to-real-Agent path for THOUGHT, under its own repository scope.
+  Local validation passed 57 tests, 30 source documents/116 links and the
+  24-page/586-link site check, plus whitespace and redacted secret checks.
+  Those checks validate the pointer contribution, not the proposed protocol.
+
 - 2026-10-04 PR phone notifications (Lab maintenance/release lane): the
   operator requested GitHub Mobile pushes for new Lab PRs. The focused
   `Notify Lab maintainer of pull requests` workflow assigns newly opened PRs
