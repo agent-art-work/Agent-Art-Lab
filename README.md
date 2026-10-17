@@ -47,6 +47,14 @@ Repository visibility is public. No reuse license has been selected. See the
 
 ## What lives here
 
+The candidate participation protocol has a separate home:
+[agent-art-work/agent-art-protocol](https://github.com/agent-art-work/agent-art-protocol)
+(initially private; authorized access required). Protocol design and any future
+shared client integrations, reference infrastructure and conformance work belong
+there. This Lab retains research, studies and publication; each artwork retains
+its own artistic conditions, implementation and release. The protocol repository
+currently contains documentation, not a qualified runtime or real-Agent path.
+
 | Component | Purpose |
 | --- | --- |
 | [Guidance](GUIDANCE.md) | Shared foundations and methods, not a fixed creative recipe. |

@@ -2,6 +2,25 @@
 
 Recorded 2026-09-20 following the operator's correction.
 
+## Protocol repository split, 2026-10-17
+
+The operator selected a separate, initially private repository:
+[agent-art-work/agent-art-protocol](https://github.com/agent-art-work/agent-art-protocol).
+It owns the candidate participation protocol and is the intended home for
+future shared reference infrastructure, client integrations and conformance.
+The current rollout is documentation only; it establishes no implemented or
+qualified client path. Access requires repository permission.
+
+Agent-Art-Lab continues research, studies, Guidance and publication. It does not
+become the protocol runtime or its implementation repository. Participating
+artworks retain their artistic conditions, experience, adapters and releases in
+their own repositories. No transfer of artwork ownership is required.
+
+The reusable architecture originated in WILL; its complete historical research
+stays there, with the protocol repository recording a pinned source revision.
+No private protocol text or WILL material is republished in this Lab pointer.
+The earlier dated organization records below retain their historical scope.
+
 ## Current organization and repositories, 2026-10-03
 
 The operator authorized renaming the existing organization from
