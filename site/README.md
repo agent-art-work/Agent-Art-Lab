@@ -57,11 +57,13 @@ implied. Keep private trial screenshots and raw evidence outside the release.
 The immutable archive's README records its earlier pilot state. The Lab's
 current integration is described here: no app discovery and receipts disabled.
 
-The subsequent explanation-link candidate pins SDK 0.1.2 and adds the public
+The current explanation-link integration pins SDK 0.1.2 and adds the public
 `/ask-your-agent/` route. The mark, label and decorative ⓘ share one ordinary
 same-tab About link; ChatGPT, Claude and Copy remain separate actions. The About
 link carries no invitation or Work query. Both versioned archives remain
-immutable. Publication follows the combined Lab and protocol qualification.
+immutable. The combined Lab and protocol qualification passed; PR #10 deployed
+this scoped update on 2026-10-21. Live page navigation, component checks and all
+19 exported documents were verified after deployment.
 
 Requires Node.js 22+ and Python 3.10+ for the offline checks:
 

@@ -36,9 +36,21 @@ before making repository-ownership or task-routing proposals.
   About-link structure and keyboard focus, unchanged 983-byte native/Copy
   payloads and manual fallbacks. About and native navigation were canceled;
   no native Agent trial or protocol-repository edit is part of this change.
-  Private QA remains ignored and disposable browsers were closed. Next action:
-  finish the protocol owner's combined qualification and release the reviewed
-  Lab candidate through the standing PR workflow.
+  Private QA remains ignored and disposable browsers were closed.
+  The protocol owner then independently reproduced the exact candidate tree,
+  install, package files and Lab checks, and reported its standalone browser
+  qualification passing. [PR #10](https://github.com/agent-art-work/Agent-Art-Lab/pull/10)
+  passed CI at `1586c33`, merged as `552e34c`, and
+  [Pages deployment](https://github.com/agent-art-work/Agent-Art-Lab/actions/runs/39572860723)
+  succeeded. Fresh live requests matched all 62 served files and verified all
+  19 document exports, with recomputed index revision
+  `sha256:ec70a18335e330b8160150d9951643253c4f6d55572d143161b00144502229df`.
+  Live regular-Chrome desktop/light and mobile/dark checks followed the actual
+  About link to the explanation page and passed the existing payload, Copy,
+  accessibility and fallback checks. Native launches remained canceled.
+  A separate local 320px/dark check passed component fit and keyboard focus.
+  No release blocker remains. Next action: continue ordinary Lab contribution
+  review under the standing merge direction.
 
 - 2026-10-21 rollout complete (Lab release lane):
   [PR #9](https://github.com/agent-art-work/Agent-Art-Lab/pull/9) passed review
