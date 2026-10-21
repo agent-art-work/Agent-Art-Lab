@@ -1,4 +1,4 @@
-name: Notify Lab maintainer of pull requests
+name: Notify site maintainer of pull requests
 
 on:
   pull_request_target:
@@ -19,11 +19,11 @@ concurrency:
 
 jobs:
   notify:
-    if: github.repository == 'agent-art-work/Agent-Art-Lab' && github.ref == 'refs/heads/main'
+    if: github.repository == 'agent-art-work/agentart.work' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - name: Assign the Lab maintainer
+      - name: Assign the site maintainer
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -35,7 +35,7 @@ jobs:
           from urllib.error import HTTPError, URLError
           from urllib.request import HTTPRedirectHandler, Request, build_opener
 
-          repository = "agent-art-work/Agent-Art-Lab"
+          repository = "agent-art-work/agentart.work"
           assignee = "inshell-art"
           event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
           event_repository = event.get("repository", {})
@@ -43,7 +43,7 @@ jobs:
                   or event_repository.get("full_name") != repository
                   or event_repository.get("default_branch") != "main"
                   or os.environ.get("GITHUB_REF") != "refs/heads/main"):
-              raise SystemExit("This notifier must run from the Lab's default branch.")
+              raise SystemExit("This notifier must run from the site's default branch.")
 
           manual = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
           if manual:
@@ -96,7 +96,7 @@ jobs:
           pull = api("GET", f"/pulls/{number}")
           if (pull.get("number") != number
                   or pull.get("base", {}).get("repo", {}).get("full_name") != repository):
-              raise SystemExit("Fetched pull request identity does not match the Lab target.")
+              raise SystemExit("Fetched pull request identity does not match the site target.")
           if not manual and pull.get("state") != "open":
               print(f"PR #{number} is already closed; no assignment or notification generated.")
               raise SystemExit(0)
