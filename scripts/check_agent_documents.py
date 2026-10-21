@@ -20,6 +20,7 @@ ROUTES = {
     "research/README.md": "research/",
     "docs/BOUNDARIES.md": "boundaries/",
     "docs/AGENT_ACCESS.md": "agent-access/",
+    "docs/ASK_YOUR_AGENT.md": "ask-your-agent/",
     "templates/PROJECT.md": "templates/project.html",
     "templates/STUDY.md": "templates/study.html",
     "projects/thought/README.md": "projects/thought/",

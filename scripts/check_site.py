@@ -23,7 +23,7 @@ PUBLIC_SCRIPTS = {
     Path("assets/copy-prompt.js"), Path("assets/style-demo.js"),
     Path("assets/agent-art-reading.mjs"),
     Path("assets/agent-art-reading-work.mjs"),
-    *(Path("assets/agent-art-sdk") / name for name in (
+    *(Path("assets/agent-art-sdk/0.1.2") / name for name in (
         "index.mjs", "clients.mjs", "reading.mjs", "reading-ui.mjs",
     )),
 }

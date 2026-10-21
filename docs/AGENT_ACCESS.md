@@ -1,5 +1,9 @@
 # Reading Agent-Art-Lab with an agent
 
+For an introduction to the visitor controls, read
+[What is Ask your Agent?](ASK_YOUR_AGENT.md). This guide describes the complete
+source retrieval and verification contract.
+
 Use the [document index](https://agentart.work/agent-index.json)
 to discover complete source documents and read them with ordinary permitted HTTP
 tools. The index and downloads are static files on the same site. Reading them

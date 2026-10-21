@@ -57,6 +57,12 @@ implied. Keep private trial screenshots and raw evidence outside the release.
 The immutable archive's README records its earlier pilot state. The Lab's
 current integration is described here: no app discovery and receipts disabled.
 
+The subsequent explanation-link candidate pins SDK 0.1.2 and adds the public
+`/ask-your-agent/` route. The mark, label and decorative ⓘ share one ordinary
+same-tab About link; ChatGPT, Claude and Copy remain separate actions. The About
+link carries no invitation or Work query. Both versioned archives remain
+immutable. Publication follows the combined Lab and protocol qualification.
+
 Requires Node.js 22+ and Python 3.10+ for the offline checks:
 
 ```sh
@@ -87,6 +93,11 @@ old text. Before another handoff, expand the original prompt and check its
 paragraphs. The generated adapter URL and its Work import carry content hashes
 so the newly built homepage requests its matching prompt assets. Those hashes
 do not refresh an already-mounted page or an old HTML document by themselves.
+The SDK's five browser files are copied unchanged under
+`assets/agent-art-sdk/0.1.2/`. Versioning the package directory gives its relative
+module imports and stylesheet the same cache boundary. On an SDK update, change
+that path in the build, adapter and output allowlist together with the package
+pin; never overwrite a released package with different bytes.
 
 ## Add or revise an article
 
@@ -142,6 +153,11 @@ The Ask your Agent component appears above that fallback. The build imports
 without modification. `site/assets/agent-art-reading.mjs` mounts the SDK UI;
 the Lab owns placement, Work metadata and the exact canonical prompt. Keep
 component changes in the protocol project and version new SDK bytes separately.
+
+The visitor explanation at `/ask-your-agent/` comes from
+[What is Ask your Agent?](../docs/ASK_YOUR_AGENT.md), with a complete document
+export in the agent index. Keep its explanation of shared context and receiving
+app boundaries distinct from the technical retrieval contract at `/agent-access/`.
 
 ChatGPT and Claude prepare native application URLs; Copy supports a conversation
 the visitor chooses. The mounted controls use different routes:

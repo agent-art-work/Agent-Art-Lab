@@ -11,7 +11,7 @@
     "check:site": "python3 -B scripts/check_site.py"
   },
   "dependencies": {
-    "@agent-art/protocol": "file:vendor/agent-art-protocol-0.1.1.tgz",
+    "@agent-art/protocol": "file:vendor/agent-art-protocol-0.1.2.tgz",
     "github-slugger": "2.0.0",
     "markdown-it": "15.0.2"
   }

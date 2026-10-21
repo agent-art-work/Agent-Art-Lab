@@ -13,6 +13,11 @@ import { renderIconConcepts } from './icon-demo.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const sdkRoot = path.dirname(createRequire(import.meta.url).resolve('@agent-art/protocol'));
+// Immutable package paths keep its relative imports on the same cache version.
+const sdkAssetPath = 'assets/agent-art-sdk/0.1.2';
+if (JSON.parse(readFileSync(path.join(sdkRoot, 'package.json'), 'utf8')).version !== '0.1.2') {
+  throw new Error('The SDK asset path must match the installed immutable package version.');
+}
 const output = path.join(root, '_site');
 const repo = 'https://github.com/agent-art-work/Agent-Art-Lab';
 const slogan = 'Articles, studies and working notes on Agent Art.';
@@ -32,6 +37,7 @@ const routes = new Map([
   ['research/README.md', 'research/index.html'],
   ['docs/BOUNDARIES.md', 'boundaries/index.html'],
   ['docs/AGENT_ACCESS.md', 'agent-access/index.html'],
+  ['docs/ASK_YOUR_AGENT.md', 'ask-your-agent/index.html'],
   ['templates/PROJECT.md', 'templates/project.html'],
   ['templates/STUDY.md', 'templates/study.html'],
   ['projects/thought/README.md', 'projects/thought/index.html'],
@@ -128,8 +134,8 @@ rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
 cpSync(path.join(root, 'site/assets'), path.join(output, 'assets'), { recursive: true });
 for (const file of ['index.mjs', 'clients.mjs', 'reading.mjs', 'reading-ui.mjs', 'reading.css']) {
-  mkdirSync(path.join(output, 'assets/agent-art-sdk'), { recursive: true });
-  cpSync(path.join(sdkRoot, file), path.join(output, 'assets/agent-art-sdk', file));
+  mkdirSync(path.join(output, sdkAssetPath), { recursive: true });
+  cpSync(path.join(sdkRoot, file), path.join(output, sdkAssetPath, file));
 }
 const readingWork = defineWork({
   id: 'https://agentart.work/#reading', version: '1', title: 'Read Agent Art Lab',
@@ -159,7 +165,7 @@ write('index.html', shell('Blog', `
 <section class="site-agent-reading" aria-labelledby="reading-heading"><h2 id="reading-heading">Read with your Agent.</h2><div id="ask-your-agent"></div></section>
 <details class="hero-prompt" id="agent-prompt-disclosure"><summary><span id="agent-prompt-heading">Copy the original reading prompt</span><span class="disclosure-icon" aria-hidden="true"></span></summary>
 <div class="prompt-content"><p class="prompt-intro">Copy this prompt, then ask your agent about anything on the blog.</p><div class="prompt-actions"><button class="button prompt-copy" type="button" id="copy-agent-prompt" hidden>Copy prompt <span aria-hidden="true">↗</span></button><a href="${url('agent-access/index.html')}">How it works ↗</a></div><pre id="agent-prompt" tabindex="0" aria-label="Prompt to copy for your agent">${esc(agentPrompt)}</pre><p class="prompt-status" id="prompt-copy-status" role="status" aria-live="polite">You can also select and copy the text.</p></div></details></section>
-<section class="journal-feed" id="articles" aria-labelledby="recent-heading"><div class="section-heading"><h2 id="recent-heading">Latest articles</h2></div>${posts(studies)}</section><script src="${url('assets/copy-prompt.js')}" defer></script><link rel="stylesheet" href="${url('assets/agent-art-sdk/reading.css')}"><script type="module" src="${url(`assets/agent-art-reading.mjs?v=${adapterAssetRevision}`)}"></script>`, homeDescription));
+<section class="journal-feed" id="articles" aria-labelledby="recent-heading"><div class="section-heading"><h2 id="recent-heading">Latest articles</h2></div>${posts(studies)}</section><script src="${url('assets/copy-prompt.js')}" defer></script><link rel="stylesheet" href="${url(`${sdkAssetPath}/reading.css`)}"><script type="module" src="${url(`assets/agent-art-reading.mjs?v=${adapterAssetRevision}`)}"></script>`, homeDescription));
 
 // Keep old list URLs usable without maintaining duplicate browsing surfaces.
 for (const route of ['studies/index.html', 'lessons/index.html']) {
