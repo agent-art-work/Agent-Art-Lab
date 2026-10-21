@@ -13,7 +13,7 @@ findings/Guidance change; dated corrections retained:
 
 For a new collection, identify the build routes, collection scan and agent-document
 checker routes/allowlist updated under the
-[contribution guide](https://github.com/agent-art-work/Agent-Art-Lab/blob/main/CONTRIBUTING.md).
+[contribution guide](https://github.com/agent-art-work/agentart.work/blob/main/CONTRIBUTING.md).
 
 ## Checks
 
