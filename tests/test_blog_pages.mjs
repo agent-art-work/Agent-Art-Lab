@@ -121,7 +121,10 @@ test('reading controls mount before the manual disclosure and preserve the exact
     'the nested Work import must change its cache key when prompt bytes change');
   assert.ok(homepage.includes(`${base}/assets/agent-art-reading.mjs?v=${adapterRevision}`),
     'the homepage must request the matching adapter revision');
-  assert.match(integration, /import \{ mountReading \} from '\.\/agent-art-sdk\/reading-ui\.mjs'/);
+  assert.match(integration, /import \{ mountReading \} from '\.\/agent-art-sdk\/0\.1\.2\/reading-ui\.mjs'/);
+  assert.ok(homepage.includes(`${base}/assets/agent-art-sdk/0.1.2/reading.css`),
+    'SDK styles and relative module imports share the immutable version path');
+  assert.ok(!existsSync(path.join(root, '_site/assets/agent-art-sdk/reading-ui.mjs')));
   assert.doesNotMatch(integration, /discoverClients|127\.0\.0\.1|__aap/, 'public adapter must not probe the visitor’s machine');
   assert.doesNotMatch(integration, /mountOpenGate|\.\/open-gate\.mjs/);
   assert.match(integration, /evidence: false/);
@@ -129,7 +132,7 @@ test('reading controls mount before the manual disclosure and preserve the exact
   assert.ok(!existsSync(path.join(root, '_site/assets/open-gate.css')));
   assert.ok(!homepage.includes('assets/open-gate.css'));
   for (const file of ['index.mjs', 'clients.mjs', 'reading.mjs', 'reading-ui.mjs', 'reading.css']) {
-    assert.equal(read(`_site/assets/agent-art-sdk/${file}`),
+    assert.equal(read(`_site/assets/agent-art-sdk/0.1.2/${file}`),
       read(`node_modules/@agent-art/protocol/${file}`));
   }
 });

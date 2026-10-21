@@ -20,6 +20,26 @@ before making repository-ownership or task-routing proposals.
 
 ## Current position
 
+- 2026-10-21 Ask your Agent explanation (Lab integration lane): the operator
+  approved a mark/label/ⓘ explanation link in the protocol session and directed
+  coordination with the Lab. The Lab owns `/ask-your-agent/`, rendered from
+  `docs/ASK_YOUR_AGENT.md` and included in the agent index; `/agent-access/`
+  retains the detailed retrieval contract. The local page and links pass
+  37 Python tests, 22 Node tests and the 25-page/609-link check. Independent
+  content and package review found no accuracy or publication blocker. The
+  supplied immutable SDK 0.1.2 archive has SHA-256
+  `0a535238ad9eaecd973fa8127b7d24f745ca502908ad1f7377654ecdd8bdcfa5`;
+  its locked integrity, all 11 installed files and five copied browser files
+  match. SDK 0.1.1 remains unchanged. All SDK browser files now share the
+  versioned `assets/agent-art-sdk/0.1.2/` path, including relative imports and
+  CSS. Regular Chrome at 1440px/light and 390px/dark passed page layout,
+  About-link structure and keyboard focus, unchanged 983-byte native/Copy
+  payloads and manual fallbacks. About and native navigation were canceled;
+  no native Agent trial or protocol-repository edit is part of this change.
+  Private QA remains ignored and disposable browsers were closed. Next action:
+  finish the protocol owner's combined qualification and release the reviewed
+  Lab candidate through the standing PR workflow.
+
 - 2026-10-21 rollout complete (Lab release lane):
   [PR #9](https://github.com/agent-art-work/Agent-Art-Lab/pull/9) passed review
   and required checks at `7c82082`, then merged as `fc8366c`.
