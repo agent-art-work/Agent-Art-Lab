@@ -62,7 +62,7 @@
 .demo-page .copy-prompt { min-height: 32px; padding: 3px 0; border: 0; border-radius: 0; color: inherit; background: transparent; font-size: 12px; text-decoration: underline; text-underline-offset: 0.2em; }
 .demo-page .copy-prompt:hover { text-decoration-thickness: 2px; }
 .demo-page .copy-prompt span { margin-left: 8px; }
-.demo-page .prompt-text { max-width: 100%; margin: 0; padding: 0; color: #444; font: 400 13px/1.85 var(--demo-sans); white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+.demo-page .prompt-text { max-width: 100%; margin: 0; padding: 0; color: #444; font: 400 13px/1.85 var(--demo-sans); white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal; }
 .demo-page .copy-status { margin-block: 14px 8px; color: #666; font-size: 11px; }
 .demo-page .document-link { font-size: 11px; overflow-wrap: anywhere; }
 .demo-page .preview-feed > h4 { margin-bottom: 24px; font-size: 14px; font-weight: 550; }

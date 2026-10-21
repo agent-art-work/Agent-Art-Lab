@@ -38,6 +38,24 @@ test('index revision describes the serialized contract and builds are determinis
   assert.deepEqual(JSON.parse(first.indexBytes), first.index);
 });
 
+test('a consumer can recompute the advertised index revision from fetched bytes', () => {
+  const result = buildAgentDocuments([fixture({ title: '雪 / café / 🎨' })]);
+  const { revision, ...unsigned } = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(result.indexBytes));
+  assert.equal(unsigned.access.indexRevision.algorithm, 'SHA-256');
+  assert.match(unsigned.access.indexRevision.serialization, /JSON\.stringify\(unsignedIndex, null, 2\) \+ '\\n'/);
+  assert.match(unsigned.access.format, /No formal JSON Schema/);
+  assert.match(unsigned.access.downloadBytes, /after HTTP content-encoding decompression/);
+  assert.equal(revision, `sha256:${hash(Buffer.from(JSON.stringify(unsigned, null, 2) + '\n', 'utf8'))}`);
+  // Plausible alternate representations must not be called a verified revision.
+  for (const bytes of [
+    result.indexBytes, // Still includes the revision.
+    Buffer.from(JSON.stringify(unsigned)), // Compact JSON.
+    Buffer.from(JSON.stringify(unsigned, null, 2)), // Missing final LF.
+  ]) {
+    assert.notEqual(revision, `sha256:${hash(bytes)}`);
+  }
+});
+
 test('content changes update both byte identities and the index revision', () => {
   const first = buildAgentDocuments([fixture()]);
   const changed = buildAgentDocuments([fixture({ bytes: Buffer.from('# Changed\n\nStill unverified.\n') })]);

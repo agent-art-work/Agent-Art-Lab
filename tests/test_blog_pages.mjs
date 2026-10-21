@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { createReading } from '@agent-art/protocol/reading';
 import { before, test } from 'node:test';
 import MarkdownIt from 'markdown-it';
 
@@ -79,7 +81,7 @@ test('the homepage keeps the complete canonical prompt inside a native, initiall
   const disclosure = one(hero.inner, 'details', 'hero-prompt');
   assert.equal(disclosure.attrs.id, 'agent-prompt-disclosure');
   assert.ok(!('open' in disclosure.attrs), 'the native disclosure is closed by default');
-  assert.equal(text(one(disclosure.inner, 'summary').inner), 'Read with your agent.');
+  assert.equal(text(one(disclosure.inner, 'summary').inner), 'Copy the original reading prompt');
   const prompt = elements(disclosure.inner, 'pre').filter(item => item.attrs.id === 'agent-prompt');
   assert.equal(prompt.length, 1, 'the full prompt remains inside the hero disclosure');
   const copyButton = elements(disclosure.inner, 'button').filter(item => item.attrs.id === 'copy-agent-prompt');
@@ -94,6 +96,42 @@ test('the homepage keeps the complete canonical prompt inside a native, initiall
   const canonical = tokens.slice(heading + 1).find(token => token.type === 'fence' && token.info === 'text');
   assert.ok(canonical, 'the access guide supplies the canonical prompt');
   assert.equal(decode(prompt[0].inner), canonical.content.replace(/\n$/, ''));
+});
+
+test('reading controls mount before the manual disclosure and preserve the exact handoff-only public context', async () => {
+  const homepage = read('_site/index.html');
+  assert.ok(homepage.indexOf('id="ask-your-agent"') < homepage.indexOf('id="agent-prompt-disclosure"'));
+  assert.ok(homepage.includes(`${base}/assets/agent-art-reading.mjs`));
+  const { default: work } = await import(pathToFileURL(path.join(root, '_site/assets/agent-art-reading-work.mjs')).href);
+  const reading = createReading({ work });
+  const canonical = read('docs/AGENT_ACCESS.md').match(/## A prompt to use\s+```text\n([\s\S]*?)\n```/)?.[1];
+  for (const [client, protocol, parameter] of [
+    ['codex-app', 'codex:', 'prompt'], ['claude-app', 'claude:', 'q'],
+  ]) {
+    const destination = new URL(reading.prepare({ client }).url);
+    assert.equal(destination.protocol, protocol);
+    assert.equal(destination.searchParams.get(parameter), canonical);
+  }
+  assert.equal(reading.prepare({ client: 'claude-app', conversation: 'existing' }).kind, 'manual');
+  assert.ok(!read('_site/assets/agent-art-reading.mjs').includes('/__bridge/'));
+  const integration = read('_site/assets/agent-art-reading.mjs');
+  const workRevision = createHash('sha256').update(read('_site/assets/agent-art-reading-work.mjs')).digest('hex');
+  const adapterRevision = createHash('sha256').update(integration).digest('hex');
+  assert.ok(integration.includes(`'./agent-art-reading-work.mjs?v=${workRevision}'`),
+    'the nested Work import must change its cache key when prompt bytes change');
+  assert.ok(homepage.includes(`${base}/assets/agent-art-reading.mjs?v=${adapterRevision}`),
+    'the homepage must request the matching adapter revision');
+  assert.match(integration, /import \{ mountReading \} from '\.\/agent-art-sdk\/reading-ui\.mjs'/);
+  assert.doesNotMatch(integration, /discoverClients|127\.0\.0\.1|__aap/, 'public adapter must not probe the visitor’s machine');
+  assert.doesNotMatch(integration, /mountOpenGate|\.\/open-gate\.mjs/);
+  assert.match(integration, /evidence: false/);
+  assert.ok(!existsSync(path.join(root, '_site/assets/open-gate.mjs')));
+  assert.ok(!existsSync(path.join(root, '_site/assets/open-gate.css')));
+  assert.ok(!homepage.includes('assets/open-gate.css'));
+  for (const file of ['index.mjs', 'clients.mjs', 'reading.mjs', 'reading-ui.mjs', 'reading.css']) {
+    assert.equal(read(`_site/assets/agent-art-sdk/${file}`),
+      read(`node_modules/@agent-art/protocol/${file}`));
+  }
 });
 
 test('legacy studies and lessons URLs redirect to the single blog with a visible fallback', () => {

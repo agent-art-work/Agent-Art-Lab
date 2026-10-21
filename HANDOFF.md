@@ -20,6 +20,217 @@ before making repository-ownership or task-routing proposals.
 
 ## Current position
 
+- 2026-10-21 release direction (Lab release lane): the operator explicitly
+  requested committing, pushing and rolling this candidate out to `agentart.work`.
+  That direction supersedes the earlier publication hold for this Lab candidate,
+  including its immutable vendored SDK 0.1.1 and browser assets. It does not
+  authorize an npm release, a protocol-repository visibility change, a new
+  license or another site's rollout. Private QA screenshots and raw trial
+  evidence remain ignored and outside the commit/deployment. Independent
+  read-only code and publication reviews found no implementation blocker;
+  current release and destination-submission wording now reflects the evidence.
+  A clean locked install with scripts disabled passed, followed by 37 Python
+  tests, 22 Node tests and the 24-page/588-link check. The first offline install
+  failed because its cache was incomplete; the permitted online install repaired
+  dependencies before the full successful rerun. Next action: push the reviewed
+  candidate PR, merge under standing direction when its checks pass, then verify
+  deployment and live prompt/document bytes.
+
+- 2026-10-21 operator-provided ChatGPT screenshot (Lab integration lane): the
+  requested receiving-app image now closes the earlier visual-evidence gap for
+  the reported awkward-wrap defect. The full invitation is visible and wraps
+  naturally, with none of the former short hard-break fragments. Its five text
+  blocks start on new lines; ChatGPT shows tighter spacing than the observed
+  Claude view, without blank-line gaps. This is review of a supplied screenshot,
+  not direct native-app inspection, exact-byte proof or a general client guarantee.
+  The original image and dated result are retained in ignored
+  `local/qa/native-handoff-2026-10-21/`. Both observed receiving views now pass
+  the bounded wrapping/completeness check. No further formatting change is
+  indicated. Next action: keep this local candidate for review; the existing
+  private-SDK publication hold still requires separate release direction.
+
+- 2026-10-21 actual receiving-app follow-up (Lab integration lane): the operator
+  explicitly authorized this agent to run a fresh native handoff and inspect
+  recipient layout. Both desktop links were clicked from the revised preview
+  in verified regular Chrome. Computer Use refused access to `com.openai.codex`
+  for safety reasons, so ChatGPT native rendering remains unverified. A recent
+  matching chat record contains the five complete paragraph texts, with single
+  line separators and URL decoration; that representation is not pixel evidence
+  or exact transport bytes, and no explicit source-tab receipt links it to the click.
+  Claude desktop was accessible. Its first observed view already contained a
+  sent invitation and a running response; this agent performed no separate Send
+  action. After expanding that received message, the actual native screenshot
+  showed all five separated paragraphs, natural wrapping and the complete text,
+  without the former short hard-break fragments. This is a visual pass for that
+  Claude window only, not a universal auto-send or client-layout guarantee.
+  Ignored `local/qa/native-handoff-2026-10-21/` retains the screenshot and bounded
+  verification record. No SDK or site implementation changed in this follow-up;
+  publication remains on hold. The preview and receiving conversation remain
+  available for review. Next action: obtain an operator-provided screenshot of
+  the fresh ChatGPT message if that blocked native layout must also be verified.
+
+- 2026-10-21 follow-up on repeated awkward handoff text (Lab integration lane):
+  both newest received invitations still contain the old editorial hard wraps,
+  allowing for their visible Markdown URL representation. Current loopback HTTP
+  responses match the corrected build; the existing regular Chrome tab already
+  offered the corrected five-paragraph native queries before navigation. This
+  does not identify the originating preview, copied text or draft, and does not
+  establish caching as the cause. The earlier fresh-load browser fixtures missed
+  this open-page/revision boundary. The build now gives both the adapter URL and
+  its generated Work import content-based cache keys; existing documents and
+  drafts still need an explicit reload or replacement. SDK 0.1.1 is unchanged.
+  The protocol owner added publisher/cache evidence limits to
+  `pilot/reading-sdk/NATIVE-HANDOFF.md`. All 22 Node tests, 24 pages and 588 links
+  pass. A synthetic cache-enabled regular Chrome fixture reproduced both an
+  old mounted page and new HTML paired with a cached old Work module. Loading
+  the versioned build then gave exact canonical text in both decoded native
+  queries, both Copy writer inputs and the manual prompt. No native activation
+  occurred; clipboard writers were fixtures. This qualifies that loading chain,
+  not the actual source-tab cause or recipient rendering. Evidence is retained
+  in ignored `local/qa/handoff-refresh-2026-10-21/`; its disposable browser,
+  server and profile were removed. Regular Chrome is open on
+  `http://127.0.0.1:8874/?preview=78b916443147` with the prompt expanded.
+  Local publication hold remains in force. Next action: reload the exact preview
+  used for a handoff or open that revised URL; only an operator-initiated new
+  handoff can add recipient-rendering evidence.
+
+- 2026-10-21 handoff readability and destination clarification (Lab integration
+  lane, coordinated with the protocol owner): the recipient screenshot exposed
+  editorial hard wraps in the canonical invitation. The SDK retained them,
+  while the Lab preview's whitespace collapsing hid them. The invitation now
+  uses five logical paragraphs with identical words and punctuation; the hero
+  and style-demo previews retain those paragraph boundaries. Copy and both
+  native URLs still derive from that one source. SDK 0.1.1 is unchanged.
+  The protocol owner added `pilot/reading-sdk/NATIVE-HANDOFF.md` and linked it
+  from its main documentation. Claude's reading route intentionally targets
+  Chat; the distinct Code route is available only in the lower-level builder.
+  The ChatGPT route supplies a new local composer request without a mode selector.
+  The operator's observed Work/Codex surface behavior is recorded as a report,
+  not a universal routing guarantee or a newly qualified native trial.
+  Lab maintenance documentation records the same destinations and formatting
+  ownership. All 22 Node tests and the 24-page/588-link check passed. Regular
+  Chrome at 1440px/light and 390px/dark confirmed five paragraphs, exact native
+  query and Copy text, no visible-text overflow and the script-free fallback.
+  Browser/clipboard checks used isolated fixtures with native launches canceled;
+  evidence is in ignored `local/qa/handoff-layout-2026-10-21/`. Disposable QA
+  browsers were closed. Local publication hold remains in force. Next action: inspect the
+  refreshed local prompt and use an operator-initiated handoff if a fresh
+  recipient-rendering observation is wanted; earlier sent messages remain as sent.
+
+- 2026-10-20 reading-run diagnosis (Lab integration lane, coordinated with the
+  protocol owner): the operator requested analysis of two actual attempts.
+  Both visible invitations matched the intended content, while their raw
+  delivered bytes were not exposed. The Lab associated execution records by
+  invitation and timing; no explicit parent link was exposed. Those records
+  reported fetching the public index, while the visible conversations ended
+  with an inactive approval error. The cause of that mismatch remains unknown
+  and belongs to the destination client; successful handoff does not prove
+  visible completion. Both runs had no source question and read no document
+  bodies. A failed command-line route reported an unreachable configured proxy;
+  a different existing permitted HTTP tool reportedly fetched the index. No proxy or
+  security setting was changed.
+  The Lab now adds a bounded, no-question orientation to its canonical prompt
+  while retaining the original reading-policy paragraph. The access guide and
+  index clarify format identifiers, exact index revision serialization and
+  decompressed response bytes. These changes supersede the unchanged-prompt
+  state at adoption below. SDK 0.1.1 bytes remain immutable.
+  The protocol owner completed its bounded diagnosis in that repository's
+  `pilot/reading-sdk/CLIENT-APPROVAL-DIAGNOSIS.md`, reports 12 focused SDK checks
+  passing, and found no demonstrated SDK routing/encoding defect. Its guidance
+  keeps tool authorization and visible-answer delivery with the destination.
+  Local checks passed: 37 Python tests, 22 Node tests, 24 pages, 588 local links,
+  and independent HTTP verification of all 18 local document exports. Regular
+  Chrome checks passed at desktop/light and mobile/dark sizes, including exact
+  link/copy text and the manual prompt with scripts disabled. Clipboard cases
+  were fixtures and native launches were canceled; no new Agent run was sent.
+  Sanitized diagnosis, HTTP results and browser evidence are retained in the
+  ignored `local/qa/reading-run-diagnosis-2026-10-20/` directory. The existing
+  loopback preview remains open for operator review; disposable QA browsers
+  were closed.
+  Fresh public verification initially encountered HTTP 503 for
+  `/documents/docs-boundaries.json`; one bounded repeat fetched and verified
+  all 18 documents and recomputed the index revision. The first failure is
+  retained and its origin is unknown. Local changes are not deployed; the
+  public index remains at
+  `sha256:af1de9f3e27e436952011b68a6946b7550063069a8500122299c11dcb068df0b`.
+  Comparing actual receiving/execution and visible-output boundaries exposed
+  gaps that earlier URL/copy fixtures could not test. These two attempts do
+  not measure comprehension, general reliability or the cause of the host error.
+  Publication remains on hold under the private-SDK boundary below.
+  Next action: review the revised local preview and protocol diagnosis; a new
+  operator-initiated client action is needed to observe visible completion.
+
+- 2026-10-20 Lab adoption (site component integration lane): this Lab session
+  owns the local Ask your Agent integration. Branch `codex/ask-your-agent-local`
+  starts at `d658be2cc19307d113e64bd3fa0b2ad56a0a4bfc`. The supplied full patch
+  reproduced tree `981793b5d8103caad47247eaca2015bb02c57ff0` before Lab cleanup.
+  The immutable private `@agent-art/protocol@0.1.1` archive has SHA-256
+  `2c179f487aa71cd0b769c5c70cca8786275111e33f1936de11536531b4012c18`.
+  The original content, navigation, canonical reading policy and manual prompt
+  fallback stay intact. The Lab adapter has no app discovery, loopback helper
+  or old Open gate wrapper, and explicitly disables receipts. Lab cleanup
+  removes the obsolete wrapper allowance and verifies both native URL payloads
+  and all five copied SDK assets. A fresh locked offline install succeeded.
+  This supersedes the inherited preparation notes below about active 0.1.0,
+  local discovery and unavailable offline installation; those notes describe
+  earlier isolated candidates, not the adopted Lab integration.
+  **Publication is on hold:** do not push the vendored private SDK or this
+  candidate to the public Lab repository, open a public PR, or deploy it until
+  the operator separately approves publication. No visibility or license
+  change, broader site redesign, rename or other-site integration is authorized.
+  The normal standing merge direction does not override this hold.
+  Verification on the adopted revision passed: 37 Python tests, 21 Node tests,
+  24 pages and 588 local links; all 11 installed SDK files match the archive.
+  The index and all 18 agent exports retain their previous identities. Regular
+  Chrome at 1440×1000 light and 390×844 dark confirmed inline controls, exact
+  native URL context, no overflow or external requests, and keyboard opening of
+  the original prompt with JavaScript disabled. Clipboard success/denial used
+  controlled fixtures; native activation was canceled. No Agent was launched
+  or sent a draft. Browser evidence and its runner are retained in the ignored
+  `local/qa/ask-your-agent-v0.1.1/` directory. The temporary browser profiles and
+  QA server were closed after verification.
+  Next action: operator review of the local candidate, followed by separate
+  approval to publish the private SDK before any public PR, push or deployment.
+
+### Inherited protocol-session preparation notes
+
+These are historical isolated candidates; the Lab adoption above is current.
+
+- 2026-10-20 site integration candidate (site UI lane): integrate the immutable
+  private SDK 0.1.1 archive into the real site's normal static build. ChatGPT
+  desktop prefill, Claude and Copy are inline. The public adapter has no local
+  app-discovery callback; offered desktop links do not assert installation.
+  The exact Lab invitation and manual fallback remain owner-authored. This is
+  a local feature-branch candidate, awaiting review and release direction.
+  No public deployment, Agent launch or Send is part of this change.
+
+- 2026-10-20 packaged reading component candidate (site UI lane): this isolated
+  integration uses the SDK's compact Ask your Agent component with ChatGPT
+  desktop prefill, Claude and Copy. The Lab supplies its unchanged Work and
+  public prompt; optional desktop discovery is restricted to a loopback preview.
+  Public pages offer routes without asserting installed apps. App mode belongs
+  to the destination app; no ordinary-Chat guarantee is made. This is the single
+  active SDK consumer for local testing, not a deployment. The fresh private
+  SDK 0.1.1 archive installs offline using the baseline's existing third-party
+  dependencies; a clean offline reinstall is unavailable because those cached
+  dependency tarballs are missing. All 11 installed SDK files match the archive
+  and source, and the archive matches its lock integrity. Build, 21 Node tests,
+  37 Python tests and the site check passed. Next action: verify the rendered
+  packaged component without launching an Agent or sending a draft.
+
+- 2026-10-19 reading SDK integration candidate (site UI lane): the homepage
+  mounts the shared reading UI before the original manual prompt disclosure.
+  SDK 0.1.0 is a vendored private archive with a relative locked dependency;
+  the static build copies only its browser runtime and stylesheet. The Lab
+  keeps its exact authored reading prompt and index policy. New conversations
+  use browser-native handoff, existing conversations use manual copying, and
+  questions/answers remain in the visitor's Agent. There is no helper API or
+  model call. This branch is a local candidate, not a deployment. Next action:
+  review the focused patch and qualify the selected browser/client route;
+  opening a draft does not establish reading or intentional participation.
+
+### Earlier Lab work
+
 - 2026-10-04 PR phone notifications (Lab maintenance/release lane): the
   operator requested GitHub Mobile pushes for new Lab PRs. The focused
   `Notify Lab maintainer of pull requests` workflow assigns newly opened PRs

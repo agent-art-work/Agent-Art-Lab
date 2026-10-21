@@ -2,6 +2,9 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
+import { createHash } from 'node:crypto';
+import { defineWork } from '@agent-art/protocol';
 import MarkdownIt from 'markdown-it';
 import GithubSlugger from 'github-slugger';
 import { buildAgentDocuments, documentId } from './agent-documents.mjs';
@@ -9,6 +12,7 @@ import { renderStyleDemo } from './style-demo.mjs';
 import { renderIconConcepts } from './icon-demo.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const sdkRoot = path.dirname(createRequire(import.meta.url).resolve('@agent-art/protocol'));
 const output = path.join(root, '_site');
 const repo = 'https://github.com/agent-art-work/Agent-Art-Lab';
 const slogan = 'Articles, studies and working notes on Agent Art.';
@@ -123,6 +127,28 @@ if (!agentPrompt) throw new Error('The access guide must contain the homepage ag
 rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
 cpSync(path.join(root, 'site/assets'), path.join(output, 'assets'), { recursive: true });
+for (const file of ['index.mjs', 'clients.mjs', 'reading.mjs', 'reading-ui.mjs', 'reading.css']) {
+  mkdirSync(path.join(output, 'assets/agent-art-sdk'), { recursive: true });
+  cpSync(path.join(sdkRoot, file), path.join(output, 'assets/agent-art-sdk', file));
+}
+const readingWork = defineWork({
+  id: 'https://agentart.work/#reading', version: '1', title: 'Read Agent Art Lab',
+  purpose: 'Read and discuss the Lab public material inside the visitor’s own Agent.',
+  capabilities: ['handoff'],
+  context: [
+    { id: 'reading-invitation', kind: 'text', mode: 'snapshot', text: agentPrompt },
+    { id: 'public-index', kind: 'reference', mode: 'live', url: 'https://agentart.work/agent-index.json' },
+  ],
+  conditions: { readingPolicy: agentPrompt, questionsAndAnswers: 'Remain inside the visitor’s Agent.', contributionReturn: false },
+});
+const workModule = `export default ${JSON.stringify(readingWork).replace(/</g, '\\u003c')};\n`;
+const workAssetRevision = createHash('sha256').update(workModule).digest('hex');
+write('assets/agent-art-reading-work.mjs', workModule);
+// Version both imports: a query on the entry module does not reach its children.
+const readingAdapter = read('site/assets/agent-art-reading.mjs').replace(
+  "'./agent-art-reading-work.mjs'", `'./agent-art-reading-work.mjs?v=${workAssetRevision}'`);
+const adapterAssetRevision = createHash('sha256').update(readingAdapter).digest('hex');
+write('assets/agent-art-reading.mjs', readingAdapter);
 write('.nojekyll', '');
 write('agent-index.json', agentDocuments.indexBytes);
 for (const [id, bytes] of agentDocuments.documents) write(`documents/${id}.json`, bytes);
@@ -130,9 +156,10 @@ write('llms.txt', `# Agent-Art-Lab\n\n> Shared guidance and an annotated archive
 
 write('index.html', shell('Blog', `
 <section class="home-hero journal-home"><header class="hero-intro"><h1>${esc(slogan)}</h1></header>
-<details class="hero-prompt" id="agent-prompt-disclosure"><summary><span id="agent-prompt-heading">Read with your agent.</span><span class="disclosure-icon" aria-hidden="true"></span></summary>
+<section class="site-agent-reading" aria-labelledby="reading-heading"><h2 id="reading-heading">Read with your Agent.</h2><div id="ask-your-agent"></div></section>
+<details class="hero-prompt" id="agent-prompt-disclosure"><summary><span id="agent-prompt-heading">Copy the original reading prompt</span><span class="disclosure-icon" aria-hidden="true"></span></summary>
 <div class="prompt-content"><p class="prompt-intro">Copy this prompt, then ask your agent about anything on the blog.</p><div class="prompt-actions"><button class="button prompt-copy" type="button" id="copy-agent-prompt" hidden>Copy prompt <span aria-hidden="true">↗</span></button><a href="${url('agent-access/index.html')}">How it works ↗</a></div><pre id="agent-prompt" tabindex="0" aria-label="Prompt to copy for your agent">${esc(agentPrompt)}</pre><p class="prompt-status" id="prompt-copy-status" role="status" aria-live="polite">You can also select and copy the text.</p></div></details></section>
-<section class="journal-feed" id="articles" aria-labelledby="recent-heading"><div class="section-heading"><h2 id="recent-heading">Latest articles</h2></div>${posts(studies)}</section><script src="${url('assets/copy-prompt.js')}" defer></script>`, homeDescription));
+<section class="journal-feed" id="articles" aria-labelledby="recent-heading"><div class="section-heading"><h2 id="recent-heading">Latest articles</h2></div>${posts(studies)}</section><script src="${url('assets/copy-prompt.js')}" defer></script><link rel="stylesheet" href="${url('assets/agent-art-sdk/reading.css')}"><script type="module" src="${url(`assets/agent-art-reading.mjs?v=${adapterAssetRevision}`)}"></script>`, homeDescription));
 
 // Keep old list URLs usable without maintaining duplicate browsing surfaces.
 for (const route of ['studies/index.html', 'lessons/index.html']) {
