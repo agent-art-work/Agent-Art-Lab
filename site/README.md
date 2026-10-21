@@ -65,6 +65,15 @@ immutable. The combined Lab and protocol qualification passed; PR #10 deployed
 this scoped update on 2026-10-21. Live page navigation, component checks and all
 19 exported documents were verified after deployment.
 
+SDK 0.1.2 provenance was checked on 2026-10-21: all 11 packaged files match
+`protocol/` at upstream source revision
+`cb2cd37ea14c8853a0f003bec987f01843ed3978`. The vendored archive's SHA-256 is
+`0a535238ad9eaecd973fa8127b7d24f745ca502908ad1f7377654ecdd8bdcfa5`.
+The pushed upstream branch, lock integrity, installed package and all five live
+browser assets were verified. Upstream source remains private; inspecting that
+revision requires repository access, while the vendored package is available
+in this public Lab repository. No package bytes changed for this provenance update.
+
 Requires Node.js 22+ and Python 3.10+ for the offline checks:
 
 ```sh

@@ -20,6 +20,16 @@ before making repository-ownership or task-routing proposals.
 
 ## Current position
 
+- 2026-10-21 SDK source provenance (Lab maintenance lane): the operator asked
+  the protocol owner to commit and push SDK 0.1.2 and update the Lab. The pushed
+  upstream branch resolves to `cb2cd37ea14c8853a0f003bec987f01843ed3978`.
+  All 11 vendored package files match that commit's `protocol/` files; archive
+  and lock integrity, installed files and all five built/live SDK assets also
+  match. An independent source comparison agreed. Only the maintenance record
+  needed updating: no archive, lock, asset or public About-page link changed,
+  and no native trial was run. Upstream source remains private. Next action:
+  continue normal Lab maintenance; SDK 0.1.2 is already deployed and aligned.
+
 - 2026-10-21 Ask your Agent explanation (Lab integration lane): the operator
   approved a mark/label/ⓘ explanation link in the protocol session and directed
   coordination with the Lab. The Lab owns `/ask-your-agent/`, rendered from
