@@ -20,6 +20,25 @@ before making repository-ownership or task-routing proposals.
 
 ## Current position
 
+- 2026-10-21 rollout complete (Lab release lane):
+  [PR #9](https://github.com/agent-art-work/Agent-Art-Lab/pull/9) passed review
+  and required checks at `7c82082`, then merged as `fc8366c`.
+  [Pages deployment](https://github.com/agent-art-work/Agent-Art-Lab/actions/runs/39570200399)
+  succeeded. Fresh requests to `https://agentart.work/` matched all 60 served
+  release files; all 18 document exports passed structural, identity, revision,
+  decompressed download-byte and decoded UTF-8 source checks. The recomputed
+  index revision is
+  `sha256:c5524cb67f10052ba9bde27e212e75f901a67bce1e3462a147b96fea80d7a637`.
+  Regular Chrome at 1440px/light and 390px/dark passed layout, exact native-link
+  payload, synthetic Copy, denied-clipboard and script-free fallback checks,
+  with no failed assets or runtime errors. The invitation is 983 UTF-8 bytes
+  in five paragraphs. These live browser checks canceled native activation;
+  recipient evidence remains the bounded observations recorded below.
+  Private QA remains ignored in `local/qa/release-2026-10-21/`. Disposable QA
+  browsers and the completed session-owned Chrome preview tab were closed.
+  Next action: validate the next Lab contribution under the standing merge
+  direction; this rollout has no outstanding blocker.
+
 - 2026-10-21 release direction (Lab release lane): the operator explicitly
   requested committing, pushing and rolling this candidate out to `agentart.work`.
   That direction supersedes the earlier publication hold for this Lab candidate,
