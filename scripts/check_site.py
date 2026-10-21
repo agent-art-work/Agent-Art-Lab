@@ -21,6 +21,11 @@ VOID_TAGS = {
 PUBLIC_TYPES = {".html", ".css", ".svg"}
 PUBLIC_SCRIPTS = {
     Path("assets/copy-prompt.js"), Path("assets/style-demo.js"),
+    Path("assets/agent-art-reading.mjs"),
+    Path("assets/agent-art-reading-work.mjs"),
+    *(Path("assets/agent-art-sdk") / name for name in (
+        "index.mjs", "clients.mjs", "reading.mjs", "reading-ui.mjs",
+    )),
 }
 PRIVATE_FOLDERS = {"private", "local", "tmp", "node_modules", "__pycache__"}
 

@@ -2,13 +2,16 @@
   "name": "agent-art-lab-reading-site",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "build": "node scripts/build-site.mjs",
     "test": "node --test tests/test_*.mjs",
     "check:site": "python3 -B scripts/check_site.py"
   },
   "dependencies": {
+    "@agent-art/protocol": "file:vendor/agent-art-protocol-0.1.1.tgz",
     "github-slugger": "2.0.0",
     "markdown-it": "15.0.2"
   }

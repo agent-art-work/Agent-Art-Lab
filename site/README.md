@@ -5,7 +5,7 @@ value in `scripts/build-site.mjs` supplies the homepage heading, footer and defa
 page description. The footer starts with the Agent-Art-Lab name linking home.
 Below its reference links, “Part of” is plain text; a small Off grid icon beside
 “Agent Art Work” shares the link to `https://github.com/agent-art-work`.
-The hero contains only the slogan and agent
+The hero contains the slogan, Ask your Agent component and original manual
 prompt. Homepage metadata names the broader scope and the current Lab starting
 point. Article-specific descriptions keep their own summaries.
 
@@ -48,6 +48,15 @@ The page records Off grid as selected and preserves the two alternatives.
 
 ## Build and preview
 
+On 2026-10-21 the operator authorized committing, pushing and deploying this
+Ask your Agent integration to `agentart.work`, including its pinned
+`@agent-art/protocol@0.1.1` archive and browser assets. This supersedes the earlier
+local-only publication hold for this Lab candidate. The archive stays unchanged;
+no reuse license, npm publication or protocol-repository visibility change is
+implied. Keep private trial screenshots and raw evidence outside the release.
+The immutable archive's README records its earlier pilot state. The Lab's
+current integration is described here: no app discovery and receipts disabled.
+
 Requires Node.js 22+ and Python 3.10+ for the offline checks:
 
 ```sh
@@ -70,6 +79,14 @@ Open `http://127.0.0.1:8080`. To check a project-path deployment explicitly,
 run the build and checks with `SITE_BASE_PATH=/Agent-Art-Lab`; restore the default
 root build before publishing. Generated `_site/` and `node_modules/` are ignored and
 excluded from the source packaging scan; the site checker validates the output.
+
+Rebuilding does not update an already-open preview. Reload the exact tab used
+for a handoff after rebuilding; reloading a separate Chrome tab does not update
+an in-app preview. Previously sent messages and prefilled drafts retain their
+old text. Before another handoff, expand the original prompt and check its
+paragraphs. The generated adapter URL and its Work import carry content hashes
+so the newly built homepage requests its matching prompt assets. Those hashes
+do not refresh an already-mounted page or an old HTML document by themselves.
 
 ## Add or revise an article
 
@@ -104,11 +121,58 @@ document, and every page advertises the index. The generated `llms.txt` provides
 another discovery entry point without promising automatic agent support.
 
 The homepage hero contains the prompt from the access guide's “A prompt to use”
-section in a native `details` disclosure, closed by default. “Read with your
-agent.” opens it with a pointer or keyboard, including without JavaScript.
+section in a native `details` disclosure, closed by default. “Copy the original
+reading prompt” opens it with a pointer or keyboard, including without JavaScript.
 Edit that canonical prompt to update both places. The full text remains in the
 HTML source. A small optional script copies it on click; the expanded text is
 selectable without JavaScript, and clipboard failure selects it for manual copying.
+The prompt gives a no-question first run a bounded outcome: introduce the collection
+from the index, distinguish that from documents actually read, report limits and
+ask what the visitor wants to explore. A supplied question uses the complete
+document-reading policy. The introduction does not require downloading every source.
+Keep copyable prose as logical paragraphs, with one source line per paragraph;
+do not add editor-width hard wraps inside sentences. The build and SDK preserve
+that text for Copy and native URLs. The on-page prompt previews also preserve
+paragraph breaks, so they do not hide formatting that recipients will receive.
+Do not normalize arbitrary SDK context: line breaks in code, lists or quoted
+sources can be meaningful.
+
+The Ask your Agent component appears above that fallback. The build imports
+`defineWork` from the locked SDK and copies its five packaged browser assets
+without modification. `site/assets/agent-art-reading.mjs` mounts the SDK UI;
+the Lab owns placement, Work metadata and the exact canonical prompt. Keep
+component changes in the protocol project and version new SDK bytes separately.
+
+ChatGPT and Claude prepare native application URLs; Copy supports a conversation
+the visitor chooses. The mounted controls use different routes:
+
+| Control | Native route | Destination contract |
+| --- | --- | --- |
+| ChatGPT | `codex://new?prompt=...` | New local conversation with a prefilled composer; no explicit Chat/Work/Codex mode parameter is supplied. |
+| Claude | `claude://claude.ai/new?q=...` | New Claude Chat, even when another tab was active; this is not the distinct `claude://code/new` route. |
+
+See the [OpenAI deep-link reference](https://learn.chatgpt.com/docs/reference/commands)
+and [Claude desktop link reference](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link).
+On 2026-10-21 the operator reported Claude moving from Code to Chat, and the
+ChatGPT route opening Work in its ChatGPT surface or a Codex session in its Codex
+surface. The latter surface mapping is an operator observation, not a universal
+mode guarantee. The SDK opens the destination URL and does not invoke a separate
+Send action. Do not promise that every destination remains at a draft: in one
+authorized Claude check, the first inspected view already showed a sent message
+and running response, without a separate Send action by the inspecting agent.
+That observation does not establish whether the app or an intervening operator
+action submitted it. Review the actual destination state before acting again.
+Copy is the path for a visitor-selected existing conversation or app mode.
+
+These links do not prove installation, arrival, reading or Agent execution. The public
+adapter provides no discovery callback or loopback helper. Receipts are explicitly
+disabled. The component does not retrieve private conversations.
+Permissions and final-answer delivery belong to the destination client. If its
+visible chat reports an expired approval, do not infer that no work happened or
+automatically resend the invitation. Inspect the existing run when authorized,
+report any difference between execution and visible output, and let the operator
+start a fresh client action if needed. Do not change security or proxy settings
+as a reading-component repair.
 
 The site check requires the complete page inventory (including the 404 page),
 exact agreement between the hero prompt and its source, and a labelled document
@@ -152,7 +216,8 @@ Retain the ownership TXT record; the earlier challenge record is also preserved.
 This Actions deployment does not use a `CNAME` file. The pinned
 workflow builds and checks pull requests; pushes to `main` also deploy `_site`.
 Reading requires no client JavaScript, remote fonts, analytics, database or
-third-party runtime. The homepage and demo load their optional copy scripts.
+third-party runtime. The homepage loads the optional local SDK assets alongside
+its copy script; the demo retains its separate copy script.
 Build dependencies are pinned in `package-lock.json` and can be
 updated through an ordinary reviewed change.
 

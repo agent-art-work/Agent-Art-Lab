@@ -67,6 +67,8 @@ main { min-width: 0; }
 /* The complete prompt stays in the native disclosure, usable without scripts. */
 .home-hero.journal-home { padding-block: 42px; }
 .hero-intro h1 { max-width: 630px; margin: 0; font-size: 34px; letter-spacing: -0.035em; line-height: 1.4; }
+.site-agent-reading { margin-top: 30px; }
+.site-agent-reading > h2 { margin-bottom: 18px; font-size: 25px; }
 .hero-prompt { min-width: 0; margin-top: 34px; border-block: 1px solid var(--line); }
 .hero-prompt > summary { display: flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 58px; padding-block: 16px; list-style: none; cursor: pointer; font: var(--site-weight) 25px/1.35 var(--serif); letter-spacing: -0.02em; }
 .hero-prompt > summary::-webkit-details-marker { display: none; }
@@ -80,7 +82,7 @@ main { min-width: 0; }
 .prompt-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px 23px; margin-block: 10px 17px; font-size: 15px; }
 .prompt-copy { min-height: 34px; padding-block: 5px; }
 .prompt-copy span { margin-left: 8px; }
-#agent-prompt { max-width: 100%; margin: 0; padding: 0; color: var(--prompt-ink); font: var(--site-weight) 16px/1.9 var(--sans); white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+#agent-prompt { max-width: 100%; margin: 0; padding: 0; color: var(--prompt-ink); font: var(--site-weight) 16px/1.9 var(--sans); white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal; }
 .prompt-status { margin: 14px 0 0; color: var(--muted); font-size: 14px; }
 
 .journal-feed { min-width: 0; margin-bottom: 48px; scroll-margin-top: 25px; }
