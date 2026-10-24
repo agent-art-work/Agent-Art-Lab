@@ -23,10 +23,11 @@ PUBLIC_SCRIPTS = {
     Path("assets/copy-prompt.js"), Path("assets/style-demo.js"), Path("assets/home-intro.js"), Path("assets/masthead.js"), Path("assets/theme.js"),
     Path("assets/agent-art-reading.mjs"),
     Path("assets/agent-art-reading-work.mjs"),
-    *(Path("assets/agent-art-sdk/0.1.5-flat-label.1") / name for name in (
+    *(Path("assets/agent-art-sdk/0.1.5-alpha.2") / name for name in (
         "index.mjs", "clients.mjs", "reading.mjs", "reading-ui.mjs",
     )),
 }
+PUBLIC_SDK_NOTICES = {Path("assets/agent-art-sdk/0.1.5-alpha.2/LICENSE")}
 PUBLIC_FONT_ASSETS = {Path("assets/fonts/pt-mono/PTM55FT.ttf"), Path("assets/fonts/pt-mono/OFL.txt")}
 PRIVATE_FOLDERS = {"private", "local", "tmp", "node_modules", "__pycache__"}
 
@@ -173,7 +174,7 @@ def check_site(root, base):
             if relative == Path(".nojekyll"):
                 files.append(path)
                 continue
-            if name.startswith(".") or (path.suffix not in PUBLIC_TYPES and relative not in agent_files and relative not in PUBLIC_SCRIPTS and relative not in PUBLIC_FONT_ASSETS):
+            if name.startswith(".") or (path.suffix not in PUBLIC_TYPES and relative not in agent_files and relative not in PUBLIC_SCRIPTS and relative not in (PUBLIC_FONT_ASSETS | PUBLIC_SDK_NOTICES)):
                 errors.append(f"non-public output file: {relative}")
                 continue
             files.append(path)

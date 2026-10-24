@@ -31,10 +31,10 @@
   },
   "integration": {
     "package": "@agent-art/protocol",
-    "version": "0.1.5-flat-label.1",
-    "archive": "vendor/agent-art-protocol-0.1.5-flat-label.1.tgz",
-    "sha256": "be292abbca9f934dbc75e4bbe6f544011251043a75a89de608f8cbb8c60d02ea",
-    "status": "site-release-candidate",
+    "version": "0.1.5-alpha.2",
+    "archive": "vendor/agent-art-protocol-0.1.5-alpha.2.tgz",
+    "sha256": "eadf80c14307b635bc69589b3a33ac747314b73fdef96cfb05f169337ffcc2b2",
+    "status": "approved-site-rollout-public-alpha",
     "componentOwner": "agent-art-protocol",
     "siteOwner": "agentart.work"
   }

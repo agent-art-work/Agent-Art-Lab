@@ -140,6 +140,72 @@ the respective maintainers' release authority.
 
 ## Current position
 
+- 2026-10-24 operator authorized committing, pushing and deploying the verified
+  SDK `0.1.5-alpha.2` integration to agentart.work. Publish through a reviewed
+  website PR, require CI on the exact head, then verify the deployed browser
+  assets, MIT notice, pages and Agent exports. Earlier local-only notes below
+  describe completed preparation. No new live Agent trial or upstream SDK
+  release is included. Deployment outcome is recorded on the release PR.
+
+- 2026-10-24 website maintenance: integrated public MIT SDK `0.1.5-alpha.2`
+  locally, resolving the alpha.1 design blocker. The final published archive
+  is 18,235 bytes, SHA-256
+  `eadf80c14307b635bc69589b3a33ac747314b73fdef96cfb05f169337ffcc2b2`.
+  Anonymous download, all 12 installed member hashes and a fresh offline locked
+  install verified. Package/lock, adapter, immutable build paths, output
+  allowlist and design record now use this version. The MIT notice is copied
+  unchanged alongside all five browser assets. Protocol/Ask your Agent sources
+  now describe the public alpha and its SDK-only license scope. No SDK internals
+  or site theme CSS were overridden; the invitation and manifesto are unchanged.
+  All 47 Python and 30 Node tests pass; 32-page / 83-file / 1,062-link site checks
+  pass. Stable Chrome at 1440, 390 and 320px in light/dark passes flat geometry,
+  equal visible gaps, Copy/Copied/reset size, exact context/native payloads,
+  explanation link, hover rules/hints, keyboard, denied-copy and no-JS fallback.
+  Four representative screenshots inspected. Initial hover measurement read
+  child spans instead of their decoration-bearing parents; corrected the QA
+  selector and all six cases passed. Native launches were canceled and clipboard
+  outcomes simulated; no live Agent trial. Owned browsers/profiles and the
+  temporary QA server were closed. Evidence is under ignored
+  `local/qa/public-alpha-0.1.5-alpha.2/`.
+  **Local only, uncommitted.** Production remains `v2.0.0-rc.1` on
+  `0.1.5-flat-label.1`. Next: operator review, then a separately authorized
+  website PR/rollout; no deployment or publication is authorized by this handoff.
+
+- 2026-10-24 operator decision: retain the approved flat Ask your Agent design
+  and request a compatible public Protocol release. The compatibility request,
+  exact production/candidate versions, design contract and measured browser
+  failures were sent to the existing `agent-art-protocol` session. Do not adopt
+  the older alpha appearance. Next: inspect the compatible versioned archive
+  and repeat local integration checks when available; deployment and live
+  Agent Send remain outside this request.
+
+- 2026-10-24 public reading alpha integration assessment, local only: production
+  is verified at SDK `0.1.5-flat-label.1` (fresh home GET and UI/CSS byte checks).
+  Protocol's handoff requests `0.1.5-alpha.1`; its exact 19,410-byte archive and
+  all 12 packaged file digests match the published qualification. An isolated
+  site candidate installs and locks that archive, copies its MIT notice into
+  the public build and uses only documented theme hooks. All 47 Python and 29
+  Node tests pass; site checks cover 32 pages, 83 files and 1,062 local links.
+  Stable Chrome at 1440/light and 320/dark passes actual mount, exact context,
+  canceled native routes, synthetic Copy/denial, stable feedback, explanation
+  link, keyboard, theme and no-JavaScript fallback. Screenshots inspected.
+  **Adoption is blocked by a design regression:** this alpha retains the older
+  0.1.4 component, restoring frame/tail/icons and smaller type; equal visible
+  action gaps fail in both viewports. Do not silently replace the approved flat
+  design or override SDK internals. The active site/dependency remain unchanged.
+  Candidate, patch, archive and evidence are retained under ignored
+  `local/qa/public-alpha-0.1.5-alpha.1/`; its `report.json` identifies the isolated
+  checkout. Next: obtain a compatible public flat-design release, or an explicit
+  operator decision to adopt the older appearance. No new deployment or live
+  Agent Send is authorized by this handoff. Owned test browsers/server closed.
+
+- 2026-10-24 release completed: PR #12 merged as
+  `f41ca7fe0e79083472d0bb86d974c71fbf62a4db`; `v2.0.0-rc.1` is published as a
+  GitHub prerelease and deployed successfully. All 81 live public files matched
+  the build; all 24 Agent documents passed identity/revision/byte/hash checks.
+  Desktop/mobile browser checks passed. Earlier pending-release notes below
+  describe the pre-release stage, not remaining release work.
+
 - 2026-10-24 RC validation: a clean staged-source checkout passed packaging
   (39 documents, 183 links), all 47 Python and 29 Node tests, and the 32-page /
   82-file / 1,062-link site/export checks after a locked install with scripts

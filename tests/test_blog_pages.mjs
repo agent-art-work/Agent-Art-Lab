@@ -203,8 +203,8 @@ test('reading controls mount before the manual disclosure and preserve the exact
     'the nested Work import must change its cache key when prompt bytes change');
   assert.ok(homepage.includes(`${base}/assets/agent-art-reading.mjs?v=${adapterRevision}`),
     'the homepage must request the matching adapter revision');
-  assert.match(integration, /import \{ mountReading \} from '\.\/agent-art-sdk\/0\.1\.5-flat-label\.1\/reading-ui\.mjs'/);
-  assert.ok(homepage.includes(`${base}/assets/agent-art-sdk/0.1.5-flat-label.1/reading.css`),
+  assert.match(integration, /import \{ mountReading \} from '\.\/agent-art-sdk\/0\.1\.5-alpha\.2\/reading-ui\.mjs'/);
+  assert.ok(homepage.includes(`${base}/assets/agent-art-sdk/0.1.5-alpha.2/reading.css`),
     'SDK styles and relative module imports share the immutable version path');
   assert.ok(!existsSync(path.join(root, '_site/assets/agent-art-sdk/reading-ui.mjs')));
   assert.doesNotMatch(integration, /discoverClients|127\.0\.0\.1|__aap/, 'public adapter must not probe the visitor’s machine');
@@ -213,10 +213,27 @@ test('reading controls mount before the manual disclosure and preserve the exact
   assert.ok(!existsSync(path.join(root, '_site/assets/open-gate.mjs')));
   assert.ok(!existsSync(path.join(root, '_site/assets/open-gate.css')));
   assert.ok(!homepage.includes('assets/open-gate.css'));
-  for (const file of ['index.mjs', 'clients.mjs', 'reading.mjs', 'reading-ui.mjs', 'reading.css']) {
-    assert.equal(read(`_site/assets/agent-art-sdk/0.1.5-flat-label.1/${file}`),
+  for (const file of ['index.mjs', 'clients.mjs', 'reading.mjs', 'reading-ui.mjs', 'reading.css', 'LICENSE']) {
+    assert.equal(read(`_site/assets/agent-art-sdk/0.1.5-alpha.2/${file}`),
       read(`node_modules/@agent-art/protocol/${file}`));
   }
+});
+
+test('public reading alpha retains archive integrity and redistribution notice', () => {
+  const design = JSON.parse(read('site/ask-your-agent-design.json'));
+  const archive = readFileSync(path.join(root, design.integration.archive));
+  assert.equal(archive.length, 18235);
+  assert.equal(createHash('sha256').update(archive).digest('hex'), design.integration.sha256);
+  const lock = JSON.parse(read('package-lock.json')).packages['node_modules/@agent-art/protocol'];
+  assert.equal(lock.version, design.integration.version);
+  assert.equal(lock.integrity, 'sha512-' + createHash('sha512').update(archive).digest('base64'));
+  assert.equal(lock.resolved, 'file:' + design.integration.archive);
+  const metadata = JSON.parse(read('node_modules/@agent-art/protocol/package.json'));
+  assert.equal(metadata.license, 'MIT');
+  assert.equal(metadata.version, design.integration.version);
+  const notice = read(`_site/assets/agent-art-sdk/${metadata.version}/LICENSE`);
+  assert.equal(notice, read('node_modules/@agent-art/protocol/LICENSE'));
+  assert.match(notice, /MIT License/);
 });
 
 test('legacy studies, lessons and Lab URLs redirect to the Blog with a visible fallback', () => {
@@ -294,7 +311,7 @@ test('Agent Art Work navigation and the shared reading utility serve every site 
     const scripts = elements(page, 'script');
     assert.equal(scripts.filter(script => script.attrs.src === `${base}/assets/copy-prompt.js`).length, 1, file);
     assert.equal(scripts.filter(script => script.attrs.src?.startsWith(`${base}/assets/agent-art-reading.mjs?v=`)).length, 1, file);
-    assert.ok(page.includes(`${base}/assets/agent-art-sdk/0.1.5-flat-label.1/reading.css`), file);
+    assert.ok(page.includes(`${base}/assets/agent-art-sdk/0.1.5-alpha.2/reading.css`), file);
     checked += 1;
   }
   assert.ok(checked > studies.length, 'check the reading pages as well as the articles');
