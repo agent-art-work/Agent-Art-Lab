@@ -1,0 +1,41 @@
+{
+  "name": "Ask your Agent — flat label",
+  "revision": "2026-10-23",
+  "status": "operator-approved-release-candidate",
+  "scope": "Agent Art Work v2 website release candidate; Protocol component integration",
+  "settings": {
+    "palette": "Amber gold",
+    "theme": "auto",
+    "py": 4,
+    "px": 12,
+    "gap": 12,
+    "size": 14,
+    "tint": 15,
+    "labelTint": 30,
+    "radius": 0
+  },
+  "behavior": {
+    "icons": "none",
+    "frame": "none",
+    "tail": "none",
+    "identityLink": "Underline on hover only; retain hover hint",
+    "actions": "Underline by default; remove underline on hover; retain hover hints",
+    "spacing": "Four equal visible gaps; label padding independent; reserve Copied width across the action row",
+    "copyFeedback": "Inline Copied for 3 seconds; stable total width",
+    "background": "Translucent amber surfaces; background dots remain visible through both field and label"
+  },
+  "brandColor": "Operator-approved Agent Art Work primary color; escaped logo dot, site accents and Ask your Agent.",
+  "colors": {
+    "light": "#a87632",
+    "dark": "#d9b66f"
+  },
+  "integration": {
+    "package": "@agent-art/protocol",
+    "version": "0.1.5-flat-label.1",
+    "archive": "vendor/agent-art-protocol-0.1.5-flat-label.1.tgz",
+    "sha256": "be292abbca9f934dbc75e4bbe6f544011251043a75a89de608f8cbb8c60d02ea",
+    "status": "site-release-candidate",
+    "componentOwner": "agent-art-protocol",
+    "siteOwner": "agentart.work"
+  }
+}

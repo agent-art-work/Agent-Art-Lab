@@ -1,21 +1,32 @@
 # Agent-Art-Lab Guidance
 
-Shared, revisable guidance for creating and studying Agent Art. The definition
-source retained by this edition is Inshell's public documentation; that source
-attribution does not determine the Lab's organizational ownership. This guidance
-does not replace that definition or act as a release gate.
+Optional research guidance inherited from Agent Art Lab. Use it when a concrete
+artistic or technical question calls for investigation; adapt the method and
+records to that question. It is not the default workflow for website maintenance
+or Blog publishing. Those begin with [site maintenance](site/README.md) and
+[Contribute](CONTRIBUTING.md), respectively.
+
+The current definition is maintained by [Agent Art Work](docs/AGENT_ART.md).
+The Lab name and earlier Inshell attribution remain historical context. This
+guidance neither establishes a standing research programme nor replaces the
+definition or acts as a release gate.
+
+These methods are for people choosing to study and document a practice.
+An artist decides whether and how to present evidence for an artwork; audiences
+judge. The research records described here are not requirements for making
+Agent Art, and using Agent Art Protocol is optional.
 
 ## Begin with the work
 
-[Agent Art](https://inshell.art/docs/agent-art) is art in which an Agent
-participates at the level of intention. Ask what the Agent may interpret,
+[Agent Art](docs/AGENT_ART.md) is art in which an Agent's intention enters the
+work as an artistic contribution alongside human intention. Ask what the Agent may interpret,
 choose, propose, direct or do, and how that enters this particular work.
 Do not treat a tool call, generated output, model name or protocol receipt as
 sufficient proof of intentional participation.
 
-A work chooses its own relation between human and Agent, its bounds on
-initiative and review, and its preservation method. No single relation is
-prescribed by this Lab. Technical success, creative interpretation, intentional
+A work gives human and Agent intentions equal artistic standing while choosing
+its roles, bounds on initiative and review, and preservation method. Equal
+standing does not require identical control. Technical success, creative interpretation, intentional
 participation and artwork judgment answer different questions.
 
 ## Choose a method, not a universal workflow
@@ -63,8 +74,9 @@ safeguards to evade.
   conditions. Repetitions and counterevidence remain visible.
 
 Neither exit status nor an agent's success message proves external completion.
-Use independent completion evidence appropriate to the project. THOUGHT uses
-an App receipt; other projects need not.
+Use independent completion evidence appropriate to the project. The historical
+THOUGHT studies examine App receipts; current product contracts and instructions
+remain with the owning project. Other projects need not use that mechanism.
 
 ## Provisional practices
 

@@ -1,10 +1,13 @@
 ## Question or purpose
 
-Project/work and bounded question; adapt or omit fields that do not apply.
+Article purpose, intended readers and author/byline, or the purpose of another site change.
+For a study, include its bounded question; omit fields that do not apply.
 
 ## Evidence and limits
 
-Evidence classes, source versions, unavailable/private inputs and claim limits:
+Attribution and support appropriate to the claims. For research/technical reports,
+include evidence classes, source versions and unavailable/private inputs. An essay
+or artist account does not require a technical study:
 
 ## Changed records and preserved history
 
@@ -13,7 +16,7 @@ findings/Guidance change; dated corrections retained:
 
 For a new collection, identify the build routes, collection scan and agent-document
 checker routes/allowlist updated under the
-[contribution guide](https://github.com/agent-art-work/Agent-Art-Lab/blob/main/CONTRIBUTING.md).
+[contribution guide](https://github.com/agent-art-work/agentart.work/blob/main/CONTRIBUTING.md).
 
 ## Checks
 
@@ -32,7 +35,8 @@ and commands in the contribution guide; do not claim unrun checks passed.
 Desktop/narrow layout inspection when templates, styles or wide content changed:
 
 - [ ] No credentials, private raw handoffs, personal paths or private source IDs.
-- [ ] Evidence classes and missing/private artifacts are explicit.
+- [ ] Attribution and claim limits are clear; research evidence is labelled where applicable.
+- [ ] Contents are authorized for public repository exposure, including draft PRs.
 - [ ] No new runtime, publication or spending authority is implied.
 - [ ] Handoff/current status is updated if it changed.
 

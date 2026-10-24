@@ -6,7 +6,7 @@
     "date": "2026-10-04",
     "status": "Working note",
     "evidence": "Synthesis of existing Lab records; inherited evidence limits",
-    "summary": "Native tools, complete inputs and explicit prerequisites suggest a simple supported path to checkable results. The note proposes practical review questions; general performance gains remain unmeasured."
+    "summary": "An October 4 synthesis of native-tool, document-access and handoff cases, with provisional review questions. A later note links to Protocol development; general performance gains remain unmeasured."
   },
   {
     "source": "projects/agent-handoff/studies/2026-10-04-copy-prompt-reading-handoff.md",
@@ -15,7 +15,7 @@
     "date": "2026-10-04",
     "status": "Working note",
     "evidence": "Source inspection and reported browser/prototype checks; some snapshots unavailable",
-    "summary": "Four reading invitations led to a local prototype and two isolated pilots. A dated reassessment retains the pattern and reference example while setting aside a separate library; general gains remain unmeasured."
+    "summary": "Four reading invitations led to a local prototype and two isolated pilots. The October 4 decision to set aside a library is historical; a dated update connects it to later Protocol development. General gains remain unmeasured."
   },
   {
     "source": "projects/thought/studies/2026-10-01-native-explicit-execution.md",
@@ -60,6 +60,6 @@
     "date": "2026-09-20",
     "status": "Study proposal",
     "evidence": "Unrun; review material not available",
-    "summary": "A proposed close reading asks which documented choices could support a situated interpretation of Agent intention. No candidate is selected; review material and permitted scope are still needed."
+    "summary": "An unrun proposal for a close reading of Agent intention. At the record date, no candidate was selected and review material and permitted scope were still needed; this is not a completed artistic study."
   }
 ]

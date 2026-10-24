@@ -45,7 +45,9 @@ acquire its equivalent. Record the acquisition path separately when material.
 - Review: original evidence of real host acquisition could revise the diagnosis;
   a later shared fixture/product mechanism could close the gap. Neither makes
   fixture-supplied values alone sufficient.
-- Status: provisional practice, unresolved product defect, no release waiver.
+- Status (clarified 2026-10-24): provisional practice; the product defect was
+  unresolved in the September 20 record. Current repair status belongs to
+  Inshell and has not been revalidated here. This is not a release waiver.
 
 ### P-03: evaluate the method without self-certification
 

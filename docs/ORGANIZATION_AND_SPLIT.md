@@ -2,7 +2,182 @@
 
 Recorded 2026-09-20 following the operator's correction.
 
-## Current organization and repositories, 2026-10-03
+## Current work lanes and Lab status, 2026-10-24
+
+The operator approved separating website maintenance, Blog publishing and
+optional research. Agent Art Lab remains the historical foundation and an
+inherited research practice; it is not a separate public identity or standing
+programme in the current website work. Preserve its records, attribution,
+article URLs, document IDs and schema identifiers.
+
+- **Website maintenance:** maintain this site's pages, design, integration and
+  source exports, using [site maintenance](../site/README.md). Routine changes
+  require relevant checks, not a research intake.
+- **Blog publishing:** develop an article with an agent/maintainer or submit a
+  PR directly under [Contribute](../CONTRIBUTING.md). The maintainer handles
+  publishing mechanics for assisted drafts; essays and artists' accounts need
+  no study template. Blog is the publication, not a research programme.
+- **Optional research:** investigate a concrete question with a named owner and
+  appropriate scope, drawing on [Research guidance](../GUIDANCE.md) where useful. Its
+  records may support an article, but research and publication are separate
+  activities. Unrun historical proposals are not an automatic work queue.
+
+These lanes do not move SDK implementation, artist work or release authority.
+The older dated decisions below remain historical records; use this section
+and the current [handoff](../HANDOFF.md#current-position) for task routing.
+This cleanup and the v2 preview remain local only.
+
+## Source of truth and builder artists, 2026-10-23
+
+The operator clarified that Agent Art Work is the root of the Agent Art
+initiative. `agentart.work` is the authoritative home for its definition,
+manifesto, Protocol, shared tools and Works showroom. Inshell is the first
+builder artist: it applies Agent Art in its own practice and owns its three
+movements, THOUGHT, WILL and AWA.
+
+| Responsibility | Owner |
+| --- | --- |
+| Agent Art definition, manifesto and field-level explanations | Agent Art Work; current approved sources in this repository |
+| Protocol specification, SDK and shared component releases | Agent Art Work, implemented and released by the separate `agent-art-protocol` repository |
+| Works showroom | `agentart.work`: attributed presentations linking to the artists' works; implemented in the local v2 preview |
+| Blog | `agentart.work`: articles, studies and working notes, distinct from the showroom |
+| Inshell identity and "inspect self" direction | Inshell |
+| THOUGHT, WILL, AWA and their artistic aims, implementations and releases | Inshell and the respective owning projects |
+
+General Agent Art explanations on Inshell should defer to and link to Agent
+Art Work's approved position. They are not parallel sources of truth. Older
+Inshell wording that leaves equality unspecified must be reconciled with the
+approved commitment to equal artistic standing. Equal standing does not impose
+identical roles, equal operational control or one creative workflow.
+
+Inshell's practices, material choices and technical systems can be presented
+as attributed examples. Its inward direction, movement sequence, wallets,
+contracts and live product behavior remain Inshell-specific. Showing a work
+here does not transfer its ownership or turn the showroom into its runtime.
+Participation by other artists does not require transferring repositories.
+
+Historical Lab records and their Inshell source attribution remain intact.
+They document where earlier accounts came from; they do not make Inshell the
+current authority for Agent Art. This decision also does not publish the local
+v2 website: cross-site links to new pages must be coordinated with release.
+
+## Documentation placement and reconciliation, 2026-10-23
+
+Further operator clarification: Agent Art concerns the Agent's intention as
+an artistic contribution alongside human intention. Generative methods, SVG,
+onchain preservation and community arrangements are practices, not elements
+of its definition or manifesto. A painter can make Agent Art through painting.
+Protocol serves optional digital/software interactions; it does not encompass
+all artistic practice, certify Agent Art or decide whether evidence is needed.
+Artists choose whether and how to present evidence, and audiences judge.
+Documentation integrity and technical verification still apply to specific
+research and software claims; they are not universal requirements for artworks.
+
+The operator requested a coordinated documentation revision across both sites.
+The unit of ownership is the claim or topic, not whichever repository first
+published a paragraph. Maintain the full shared explanation here and concise,
+attributed context on an artist's site. Preserve useful artist-specific detail
+where it is maintained; do not copy a second set of operating instructions.
+
+The Inshell audit baseline is commit
+`1a44454d4904fdc330f83ec3d86236783302411f`, whose public topic exports were
+inspected alongside this site's local v2 sources. Its 24 topic routes divide
+as follows:
+
+| Inshell topic(s) | Maintained home and treatment |
+| --- | --- |
+| `agent-art` | Shared definition and implications: [Agent Art](AGENT_ART.md). Inshell retains a stable contextual bridge, the approved definition, attribution and its own practice context. |
+| `agents-and-ai` | Shared participation/execution distinction belongs in Agent Art. Inshell retains its reason for working with Agents and attributed lineage; no competing technical test for Agent Art. |
+| `glossary` | Shared Agent Art terms follow the canonical explanation here. Inshell keeps concise attributed entries alongside its own product and artistic vocabulary. |
+| `inshell`, `movements`, `thought`, `will`, `awa` | Inshell owns identity, inspect self and movement accounts. [Works](WORKS.md) introduces them with attribution, availability limits and owning-site links. |
+| `lineage`, `generative-art` | Inshell's attributed artistic route and contextual essays stay there. The shared definition here explains method/medium independence without importing an unverified history or hierarchy of art forms. |
+| `design-principles`, `svg`, `fully-onchain`, `mono-76` | Inshell's chosen architecture, material, preservation and glyph system stay there. None becomes a universal Agent Art requirement. |
+| `path`, `pulse` | Inshell-specific permission, participation and auction systems stay there; do not relabel them as shared Protocol components. |
+| `contracts`, `artwork-metadata-chain`, `verification`, `wallet-local-data`, `source-release-boundaries` | Inshell owns runtime, contract, consent, record authority and release instructions. Shared evidence principles here link to the owning practice for particulars. |
+| `ethereum`, `tokens-and-nfts`, `onchain-art` | Context for Inshell's material choices stays there. It is not required background for all Agent Art. |
+
+### Conflicts resolved by the shared position
+
+- Equal artistic standing is required; equal operational control, identical
+  roles and equal contribution size are not. Remove current claims that the
+  field prescribes no equality while preserving work-specific role choices.
+- A runtime, model label, generated asset, tool call or attestation alone does
+  not establish intentional artistic participation. An attestation supports
+  its exact claim, not a certificate of artistic quality or private thought.
+- Constrained or prompted contributions can still carry intention. Randomness
+  or unpredictability alone does not establish it; intentional contribution
+  does not require claiming that generation contains no stochastic process.
+- Generative methods and Agent participation can coexist. Do not imply that
+  instruction-based art or human execution lacks interpretation, or that one
+  architecture, medium or historical era establishes artistic standing.
+- Inshell's inspect self, retained aesthetic architecture and movement sequence
+  are choices of that artist. They neither define nor exhaust the field.
+- Agent Art Protocol's shared SDK and Inshell's artwork-specific protocols
+  have separate implementation and release owners. A shared artistic position
+  does not establish compatibility between their technical systems.
+
+### Integrity and release
+
+Keep the locked manifesto unchanged. Revise current guidance, overview pages,
+templates and glossary usage; preserve dated studies, their original evidence
+and stable identities. A correction to current framing must not rewrite an
+old observation into a new result.
+
+On Inshell, edit authored sources and regenerate Markdown/JSON, indexes and
+source locks through its maintained generator. Keep existing topic URLs and
+useful fragments, with explicit compatibility handling if an anchor changes.
+Here, HTML and complete Agent downloads derive from the same Markdown source.
+
+The shared v2 destinations are `/`, `/agent-art/`, `/protocol/`,
+`/ask-your-agent/` and `/works/`. These changes are local candidates. Publish
+and verify those destinations before releasing Inshell's new cross-site links;
+a planned URL is not evidence of a live page. No deployment is authorized by
+this editorial reconciliation.
+
+Both local editorial candidates are reconciled. Inshell's candidate branch is
+`codex/docs-agent-art-work-reconciliation`; it preserves all 24 topic routes
+and 133 section IDs. Its generated exports and local checks pass using an
+existing toolchain, but a clean build with the exact pinned dependencies is
+still required before release. Existing historical references were retained
+as attributed context, not independently reverified for this revision.
+
+## Website scope and repository rename, 2026-10-21
+
+The operator authorized renaming the existing `Agent-Art-Lab` repository to
+[`agentart.work`](https://github.com/agent-art-work/agentart.work) and building a
+local v2 preview for the whole website. **Blog** replaces Lab as its public
+publication section. This continues the same repository and article history;
+it does not create a new organization or transfer Protocol implementation here.
+GitHub inspection confirmed the new full name `agent-art-work/agentart.work`
+with the same repository identity (`1379267983`, `R_kgDOUjX1jw`), public visibility
+and `main` default branch. The Pages custom domain remains `agentart.work`, and
+the existing live website responds successfully. This does not publish the v2
+redesign. See [HANDOFF](../HANDOFF.md) for preview and release status.
+
+| Layer | Current identity and responsibility |
+| --- | --- |
+| Umbrella | Agent Art Work |
+| Website and repository | `agentart.work`, under the `agent-art-work` organization |
+| Declaration | Manifesto: the approved text on home (`/`), locked for the local v2 preview; `/manifesto/` redirects home |
+| Definition | Agent Art: the definition and conceptual explanation at `/agent-art/`, separate from the declaration |
+| Publication | Blog: one chronological feed at `/blog/`; existing article URLs and source records retained |
+| Protocol | Developing infrastructure, owned by the separate `agent-art-protocol` repository |
+| Ask your Agent | Protocol's reading component; this site owns its explanation and integration |
+
+The site has an umbrella homepage, Blog, a public Protocol overview and the
+Ask your Agent explanation. Its agent index includes the reviewed public
+overview sources; private protocol files are not published automatically.
+Existing document IDs and `agent-art-lab.*` schema identifiers stay stable.
+No SDK release, private-repository visibility change or new reuse license is
+implied by this website rename. The v2 redesign remains a local preview until
+separately released.
+
+Use `agent-art-work/agentart.work` for current website links and contributions.
+The dated records below preserve earlier names, ownership observations and
+decisions. They are historical observations, not a current inventory of other
+repositories or authority to resume their transfers.
+
+## Organization rename, 2026-10-03 (historical)
 
 The operator authorized renaming the existing organization from
 `agent-art-collective` to [agent-art-work](https://github.com/agent-art-work)
@@ -133,29 +308,32 @@ They are not the Lab's governance or publication destination.
 
 | Owner/task | Continues | Does not take over |
 | --- | --- | --- |
-| Operator-created Agent-Art-Lab task | This repository; shared Guidance, archive, study practice and publication preparation | Inshell deployment or project fixes by default. |
-| DEPLOY-SUPERVISOR | Inshell Studio Preview release coordination and concrete release blockers | Ongoing central Lab establishment. |
-| Applications | `inshell.art` candidate implementation, fixes and project-specific tooling | Shared Lab ownership or all Agent Art practice. |
+| Website maintainer, formerly the Agent-Art-Lab task | This repository; whole website, Blog, Guidance, archive, public overviews and site integration | Inshell deployment, Protocol SDK releases or artwork fixes by default. |
+| Protocol maintainer | `agent-art-protocol`; specifications, SDK, component behavior and release qualification | Website content and release, or an artwork's aims and renderer. |
+| Inshell release maintainer (DEPLOY-SUPERVISOR in the split record) | Inshell Studio Preview release coordination and concrete release blockers | This website's maintenance or an automatic shared research programme. |
+| Inshell development maintainer (Applications in the split record) | `inshell.art` implementation, fixes and project-specific tooling | Shared definition ownership or all Agent Art practice. |
 | Each practice repository | Its artistic aims, implementation, evidence and release decisions | A requirement to transfer ownership to participate. |
 
-The original preparation called for the operator to create a dedicated Lab
-task. On 2026-09-20, OPS relayed the operator's explicit transfer direction and
-this dedicated Agent-Art-Lab task accepted Lab ownership; see
-[the completed handoff](../HANDOFF.md). DEPLOY-SUPERVISOR now focuses on
-Inshell Studio Preview. Existing source artifacts remain
-in their original repositories. There is no automatic cross-repository sync.
+The September 20 split created the dedicated Lab-maintenance responsibility;
+its recorded task labels remain in [the completed handoff](../HANDOFF.md).
+That website maintainer now owns Agent Art Work's site and Blog publishing.
+Research is undertaken when a question warrants it, with its own scope and owner.
+Existing source artifacts remain in their original repositories. There is no
+automatic cross-repository sync.
 
 ## Collaboration after the split
 
-A practice can raise a question; the Lab can frame research or a study; the
-practice can run its authorized project-specific investigation; the Lab can
-record reviewed findings; the practice can apply useful lessons. Use identified
-records and revisions, not copied secrets or an implicit shared runtime.
+A practice can raise a question and choose an appropriate inquiry with its
+owner. Relevant Lab records may inform it. The owning project performs any
+authorized project-specific investigation; selected accounts can be proposed
+for Blog publication. Use identified records and revisions, not copied secrets
+or an implicit shared runtime. Neither a study nor its publication is required
+for ordinary site maintenance or for an artist to make Agent Art.
 
-The current Codex acquisition diagnosis belongs in the archive. Its unresolved
-product fix belongs to Applications and release coordination. Neither making
-the Lab more general nor completing a practice-led study is an extra deployment
-gate. Conversely, shipping the website does not complete the Lab.
+The historical Codex acquisition diagnosis remains in the archive. Present
+product status and any repair belong to Inshell's maintainers and have not been
+revalidated by this instruction cleanup. Research completion is not an extra
+deployment gate; a website release does not establish a research finding.
 
 Start from [HANDOFF](../HANDOFF.md). Preserve the existing authority boundaries;
 documentation is not permission for live trials, paid usage or publication.

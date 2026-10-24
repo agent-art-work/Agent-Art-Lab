@@ -8,3 +8,11 @@ tmp/
 .DS_Store
 node_modules/
 _site/
+
+# Local editorial history; publish only the approved regression snapshot.
+/drafts/agent-art-manifesto/*
+!/drafts/agent-art-manifesto/2026-10-23-locked-manifesto-v2.md
+# Superseded local SDK experiments are not release dependencies.
+/vendor/agent-art-protocol-0.1.3.tgz
+/vendor/agent-art-protocol-0.1.4.tgz
+/vendor/agent-art-protocol-0.1.5-flat-label.0.tgz

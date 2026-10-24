@@ -27,6 +27,24 @@ class SiteContentChecks(AgentDocumentFixture, unittest.TestCase):
         (self.root / "_site/lessons/index.html").unlink()
         self.assertIn("missing generated page: lessons/index.html", self.site_errors())
 
+    def test_missing_blog_or_legacy_lab_route_is_rejected(self):
+        for route in ("blog/index.html", "lab/index.html"):
+            with self.subTest(route=route):
+                page = self.root / "_site" / route
+                original = page.read_bytes()
+                page.unlink()
+                self.assertIn(f"missing generated page: {route}", self.site_errors())
+                page.write_bytes(original)
+
+    def test_public_protocol_and_umbrella_pages_are_required(self):
+        for route in ("protocol/index.html", "about/index.html"):
+            with self.subTest(route=route):
+                page = self.root / "_site" / route
+                original = page.read_bytes()
+                page.unlink()
+                self.assertIn(f"missing generated page: {route}", self.site_errors())
+                page.write_bytes(original)
+
     def test_unlisted_html_page_is_rejected(self):
         self.put("_site/extra.html", self.page())
         self.assertIn("unexpected generated page: extra.html", self.site_errors())
@@ -50,6 +68,14 @@ class SiteContentChecks(AgentDocumentFixture, unittest.TestCase):
     def test_alternate_metadata_does_not_replace_visible_index_link(self):
         self.replace("404.html", f'<a href="{BASE}/agent-index.json">Document index (JSON)</a>', "")
         self.assertIn("missing visible document-index link: 404.html", self.site_errors())
+
+    def test_pages_can_reach_index_through_ask_your_agent(self):
+        anchor = f'<a href="{BASE}/agent-index.json">Document index (JSON)</a>'
+        for route in ("index.html", "404.html"):
+            self.replace(route, anchor, f'<a href="{BASE}/ask-your-agent/">Ask your Agent</a>')
+        self.assertEqual(self.site_errors(), [])
+        self.replace("ask-your-agent/index.html", anchor, "")
+        self.assertIn("missing visible document-index link: index.html", self.site_errors())
 
     def test_hidden_or_unlabelled_index_links_are_rejected(self):
         original = self.page().decode()

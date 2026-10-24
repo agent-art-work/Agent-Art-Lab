@@ -20,13 +20,14 @@ VOID_TAGS = {
 }
 PUBLIC_TYPES = {".html", ".css", ".svg"}
 PUBLIC_SCRIPTS = {
-    Path("assets/copy-prompt.js"), Path("assets/style-demo.js"),
+    Path("assets/copy-prompt.js"), Path("assets/style-demo.js"), Path("assets/home-intro.js"), Path("assets/masthead.js"), Path("assets/theme.js"),
     Path("assets/agent-art-reading.mjs"),
     Path("assets/agent-art-reading-work.mjs"),
-    *(Path("assets/agent-art-sdk/0.1.2") / name for name in (
+    *(Path("assets/agent-art-sdk/0.1.5-flat-label.1") / name for name in (
         "index.mjs", "clients.mjs", "reading.mjs", "reading-ui.mjs",
     )),
 }
+PUBLIC_FONT_ASSETS = {Path("assets/fonts/pt-mono/PTM55FT.ttf"), Path("assets/fonts/pt-mono/OFL.txt")}
 PRIVATE_FOLDERS = {"private", "local", "tmp", "node_modules", "__pycache__"}
 
 
@@ -172,7 +173,7 @@ def check_site(root, base):
             if relative == Path(".nojekyll"):
                 files.append(path)
                 continue
-            if name.startswith(".") or (path.suffix not in PUBLIC_TYPES and relative not in agent_files and relative not in PUBLIC_SCRIPTS):
+            if name.startswith(".") or (path.suffix not in PUBLIC_TYPES and relative not in agent_files and relative not in PUBLIC_SCRIPTS and relative not in PUBLIC_FONT_ASSETS):
                 errors.append(f"non-public output file: {relative}")
                 continue
             files.append(path)
@@ -190,10 +191,10 @@ def check_site(root, base):
         errors.append("missing .nojekyll marker")
     if output / "index.html" not in pages:
         errors.append("missing readable homepage")
-    expected_pages = {Path("index.html"), Path("lessons/index.html"),
+    expected_pages = {Path("index.html"), Path("blog/index.html"), Path("lab/index.html"), Path("lessons/index.html"),
                       Path("studies/index.html"), Path("404.html"), Path("style-demo/index.html"),
-                      Path("icon-demo/index.html")} | {
-        Path(route) / "index.html" if route.endswith("/") else Path(route)
+                      Path("icon-demo/index.html"), Path("manifesto/index.html")} | {
+        Path(route) / "index.html" if not route or route.endswith("/") else Path(route)
         for route in routes.values()
     }
     actual_pages = {path.relative_to(output) for path in pages}
@@ -249,8 +250,15 @@ def check_site(root, base):
                     valid_navigation += 1
         if not page.navs or not valid_navigation:
             errors.append(f"missing working navigation to another page: {relative}")
-        if not any(href == f"{base}/agent-index.json" and normalized(label)
-                   for href, label in page.visible_anchors):
+        direct_index = any(href == f"{base}/agent-index.json" and normalized(label)
+                           for href, label in page.visible_anchors)
+        ask = pages.get(output / "ask-your-agent/index.html")
+        index_via_ask = (ask is not None
+                         and any(href == f"{base}/ask-your-agent/" and normalized(label)
+                                 for href, label in page.visible_anchors)
+                         and any(href == f"{base}/agent-index.json" and normalized(label)
+                                 for href, label in ask.visible_anchors))
+        if not direct_index and not index_via_ask:
             errors.append(f"missing visible document-index link: {relative}")
 
     try:
@@ -284,7 +292,8 @@ def main():
         help="published path prefix; pass an empty string for a domain root",
     )
     args = parser.parse_args()
-    if args.base_path and not re.fullmatch(r"/[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*", args.base_path):
+    if args.base_path and (not re.fullmatch(r"/[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*", args.base_path)
+                           or any(part in {".", ".."} for part in args.base_path.split("/"))):
         parser.error("base path must be empty or a path without a trailing slash")
     root = Path(__file__).resolve().parent.parent
     errors, pages, files, links = check_site(root, args.base_path)

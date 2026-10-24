@@ -1,0 +1,59 @@
+{
+  "name": "Quiet field — flat label",
+  "revision": "2026-10-22",
+  "status": "superseded-local-design",
+  "scope": "Agent Art Work v2 local preview; SDK 0.1.4 candidate integration",
+  "settings": {
+    "palette": "Clay",
+    "colors": {
+      "light": "#a1785f",
+      "dark": "#bc9780"
+    },
+    "theme": "auto",
+    "icon": "dot",
+    "tail": "none",
+    "edge": 0,
+    "tint": 22,
+    "dotSize": 100,
+    "corners": {
+      "tl": 0,
+      "tr": 0,
+      "bl": 0,
+      "br": 0
+    },
+    "linkCorners": true
+  },
+  "rendering": {
+    "signalMix": "Site Clay accent without additional mixing",
+    "frame": "Invisible via supported --aap-frame: transparent",
+    "corners": "Zero-radius public hook; flat rectangular background",
+    "tail": "Invisible: transparent frame and label surface",
+    "labelField": "Transparent; shares the continuous action background",
+    "mark": "Static 8 CSS px filled signal-colored dot",
+    "escapedLogoDot": "Original Off grid position (26,5), radius 2.2 in its 32x32 viewBox; header and footer",
+    "otherAccents": "Site Clay for dot and Copy glyph; no idle action underlines",
+    "appearance": "Follow system light/dark preference; preserve existing typography, reading width and Dots texture",
+    "actionField": "22% site Clay, 78% theme paper; neutral text"
+  },
+  "integration": {
+    "componentOwner": "agent-art-protocol",
+    "siteOwner": "agentart.work",
+    "releasedSdk": "0.1.2 remains immutable and unchanged",
+    "localCandidate": "0.1.4",
+    "archiveSha256": "51b4c10d8c742aeadb018362ab2df74b059078f9cf75cac551f17d08e29ac9ba",
+    "requiredSupport": "Existing public theme hooks: frame, label surface, action surface, radius, line and signal; no SDK changes",
+    "preserve": [
+      "About link",
+      "separate ChatGPT, Claude and Copy actions",
+      "canonical prompt bytes",
+      "keyboard and clipboard fallbacks",
+      "responsive fit"
+    ],
+    "exclude": [
+      "internal tuning panel from production",
+      "private SDK selector overrides",
+      "native trials or deployment as part of design approval"
+    ]
+  },
+  "supersededBy": "ask-your-agent-design.json"
+}

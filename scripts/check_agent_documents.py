@@ -12,7 +12,7 @@ import sys
 from urllib.parse import unquote, urlsplit
 
 
-REPOSITORY = "https://github.com/agent-art-work/Agent-Art-Lab"
+REPOSITORY = "https://github.com/agent-art-work/agentart.work"
 ROUTES = {
     "GUIDANCE.md": "guidance/",
     "findings/REGISTER.md": "findings/",
@@ -21,6 +21,11 @@ ROUTES = {
     "docs/BOUNDARIES.md": "boundaries/",
     "docs/AGENT_ACCESS.md": "agent-access/",
     "docs/ASK_YOUR_AGENT.md": "ask-your-agent/",
+    "docs/MANIFESTO.md": "",
+    "docs/AGENT_ART.md": "agent-art/",
+    "docs/WORKS.md": "works/",
+    "docs/PROTOCOL.md": "protocol/",
+    "docs/AGENT_ART_WORK.md": "about/",
     "templates/PROJECT.md": "templates/project.html",
     "templates/STUDY.md": "templates/study.html",
     "projects/thought/README.md": "projects/thought/",
@@ -160,14 +165,22 @@ def check_agent_documents(root, base=""):
             if entries.get(identifier) != expected_descriptor:
                 errors.append(f"agent descriptor metadata, bytes or hashes differ: {source}")
             page_path = output / route
-            if route.endswith("/"):
+            if not route or route.endswith("/"):
                 page_path /= "index.html"
             page = Discovery()
             page.feed(page_path.read_text(encoding="utf-8"))
             target = expected_descriptor["download"]["url"]
             if (target, "application/json", "Complete document") not in page.alternates:
                 errors.append(f"missing complete-document alternate: {route}")
-            if target not in page.anchors:
+            # Home keeps the manuscript unbroken: its metadata exposes the
+            # download; the index is reachable directly or via Ask your Agent.
+            # check_site also verifies labels and visibility along this path.
+            home_index = not route and f"{base}/agent-index.json" in page.anchors
+            if not route and not home_index and f"{base}/ask-your-agent/" in page.anchors:
+                ask = Discovery()
+                ask.feed((output / "ask-your-agent/index.html").read_text(encoding="utf-8"))
+                home_index = f"{base}/agent-index.json" in ask.anchors
+            if target not in page.anchors and not home_index:
                 errors.append(f"missing visible complete-document link: {route}")
         except (OSError, UnicodeError, ValueError, TypeError, KeyError) as exc:
             errors.append(f"cannot verify agent document {source}: {exc}")

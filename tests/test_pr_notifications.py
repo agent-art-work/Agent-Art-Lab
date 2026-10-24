@@ -17,7 +17,7 @@ from urllib.error import HTTPError, URLError
 ROOT = Path(__file__).resolve().parent.parent
 WORKFLOW = (ROOT / ".github/workflows/pr-notifications.yml").read_text()
 SCRIPT = textwrap.dedent(WORKFLOW.split("          python3 - <<'PY'\n", 1)[1].rsplit("          PY", 1)[0])
-REPOSITORY = "agent-art-work/Agent-Art-Lab"
+REPOSITORY = "agent-art-work/agentart.work"
 
 
 class NotificationWorkflowTests(unittest.TestCase):

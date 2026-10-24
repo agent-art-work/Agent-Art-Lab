@@ -11,6 +11,7 @@
 ## Artistic participation and scope
 
 - How could Agent intention enter this work?
+- How do both intentions have artistic consequence, within this work's chosen roles?
 - What would only establish infrastructure or fixed execution?
 - Which artistic/technical claims are outside this study?
 - Shared Guidance reused; project-specific requirements:

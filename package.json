@@ -1,5 +1,5 @@
 {
-  "name": "agent-art-lab-reading-site",
+  "name": "agentart-work-site",
   "private": true,
   "type": "module",
   "engines": {
@@ -11,7 +11,7 @@
     "check:site": "python3 -B scripts/check_site.py"
   },
   "dependencies": {
-    "@agent-art/protocol": "file:vendor/agent-art-protocol-0.1.2.tgz",
+    "@agent-art/protocol": "file:vendor/agent-art-protocol-0.1.5-flat-label.1.tgz",
     "github-slugger": "2.0.0",
     "markdown-it": "15.0.2"
   }

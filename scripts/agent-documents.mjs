@@ -7,9 +7,9 @@ export const documentId = source => source.replace(/\.md$/, '').replace(/[\/_]/g
 
 export function buildAgentDocuments(sources, {
   basePath = '',
-  repository = 'https://github.com/agent-art-work/Agent-Art-Lab',
+  repository = 'https://github.com/agent-art-work/agentart.work',
 } = {}) {
-  if (basePath && !/^\/[A-Za-z0-9_-]+(?:\/[A-Za-z0-9_-]+)*$/.test(basePath)) throw new Error('Invalid base path');
+  if (basePath && (basePath.split('/').some(segment => ['.', '..'].includes(segment)) || !/^\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*$/.test(basePath))) throw new Error('Invalid base path');
   const documents = new Map();
   const paths = new Set();
   const entries = sources.map(input => {
@@ -48,7 +48,7 @@ export function buildAgentDocuments(sources, {
     schema: 'agent-art-lab.index/v1',
     scope: {
       includes: 'Complete canonical Markdown for the explicitly listed reading documents, including their evidence limits.',
-      excludes: 'Navigation-only home, lessons and studies pages; repository operations; private evidence; external linked material.',
+      excludes: 'Navigation-only listing pages and redirect wrappers; repository operations; private evidence; external linked material.',
       relativeLinks: 'Resolve Markdown paths against source.path and look up documents[].source.path. The download URL is not the Markdown link base.',
       provenance: 'source.url is a mutable GitHub location; source.sha256 identifies the exact exported bytes. Neither is provider attestation.',
     },

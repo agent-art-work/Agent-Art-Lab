@@ -169,3 +169,15 @@ it through project-owned changes, then revisit it when a supported route fails,
 a material requirement changes or a declared comparison supplies contrary
 evidence. A new library would need demonstrated recurring maintenance needs and
 a simpler-alternative review. This note creates no new tooling or trial.
+
+## Later development, 2026-10-24
+
+The October 4 decision above records that stage of the work. Shared tooling
+subsequently developed in [Agent Art Protocol](../../../docs/PROTOCOL.md), and
+[Ask your Agent](../../../docs/ASK_YOUR_AGENT.md) now uses its reading component
+in the local v2 preview. That integration is a private SDK candidate, not a
+public package release or proof that the original prototype was released.
+
+The earlier observations and limits remain unchanged. This editorial update
+does not rerun the trials or establish current client behavior; use the linked
+maintained pages for current integration context.
