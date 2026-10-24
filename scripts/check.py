@@ -10,15 +10,20 @@ from urllib.parse import unquote, urlsplit
 REQUIRED = (
     "README.md", "AGENTS.md", "GUIDANCE.md", "HANDOFF.md", "CONTRIBUTING.md",
     "PROVENANCE.json", "docs/BOUNDARIES.md", "templates/PROJECT.md",
+    "docs/AGENT_ART_WORK.md", "docs/PROTOCOL.md", "docs/ASK_YOUR_AGENT.md",
+    "docs/MANIFESTO.md", "docs/AGENT_ART.md", "docs/WORKS.md",
     "templates/STUDY.md", "research/README.md", "findings/REGISTER.md",
     "projects/thought/README.md",
     "projects/thought/studies/2026-09-20-model-acquisition.md",
 )
 LINK = re.compile(r"\]\(([^)\n]+)\)")
-PRIVATE_PATH = re.compile(r"/(?:Users|home)/[^\s/]+|[A-Za-z]:\\\\Users\\\\")
+PRIVATE_PATH = re.compile(r"(?<![A-Za-z0-9_.-])/(?:Users|home)/[^\s/]+|[A-Za-z]:\\\\Users\\\\")
 PRIVATE_ID = re.compile(r"(?i)\b[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\b")
 TOKEN = re.compile(r"(?i)\bBearer\s+[A-Za-z0-9._~+/-]{20,}|\b(?:sk-|ghp_|github_pat_)[A-Za-z0-9_]{20,}")
 TEXT_TYPES = {".md", ".json", ".yml", ".yaml"}
+# Root-only, gitignored QA artifacts are not part of the portable package.
+# Do not ignore arbitrary Git patterns or same-named folders within source trees.
+LOCAL_ONLY_DIRS = {"local"}
 MAX_FILES = 200
 MAX_BYTES = 1024 * 1024
 
@@ -43,7 +48,9 @@ def check_tree(root, require_layout=True):
             if not (root / item).is_file():
                 errors.append(f"missing required file: {item}")
     for folder, dirs, names in os.walk(root, followlinks=False):
-        dirs[:] = sorted(d for d in dirs if d not in {".git", "__pycache__", "node_modules", "_site"})
+        dirs[:] = sorted(d for d in dirs
+                         if d not in {".git", "__pycache__", "node_modules", "_site"}
+                         and not (Path(folder) == root and d in LOCAL_ONLY_DIRS))
         for name in list(dirs):
             path = Path(folder) / name
             if path.is_symlink():
@@ -104,7 +111,9 @@ def check_tree(root, require_layout=True):
                     except ValueError:
                         errors.append(f"out-of-repository link: {rel}")
                         continue
-                    if not target.exists():
+                    if target.relative_to(root).parts and target.relative_to(root).parts[0] in LOCAL_ONLY_DIRS:
+                        errors.append(f"link to local-only artifact: {rel}")
+                    elif not target.exists():
                         errors.append(f"missing local link target: {rel}")
     return errors, checked, links
 

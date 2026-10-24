@@ -53,9 +53,9 @@ class AgentDocumentFixture:
             target = f"{BASE}/documents/{identifier}.json"
             self.entries.append({**identity, "download": {"url": target, "mediaType": "application/json",
                                                           "sha256": digest(raw), "byteLength": len(raw)}})
-            self.put(f"_site/{route}{'index.html' if route.endswith('/') else ''}", self.page(target))
-        self.put("_site/index.html", self.page(prompt=PROMPT))
-        for route in ("lessons/index.html", "studies/index.html", "404.html", "style-demo/index.html", "icon-demo/index.html"):
+            self.put(f"_site/{route}{'index.html' if not route or route.endswith('/') else ''}", self.page(target))
+        self.put("_site/index.html", self.page(f"{BASE}/documents/docs-manifesto.json", prompt=PROMPT))
+        for route in ("blog/index.html", "lab/index.html", "lessons/index.html", "studies/index.html", "404.html", "style-demo/index.html", "icon-demo/index.html", "manifesto/index.html"):
             self.put(f"_site/{route}", self.page())
         self.put("_site/llms.txt", (f"[Index]({BASE}/agent-index.json)\n" + "".join(
             f"[Record]({entry['download']['url']})\n" for entry in self.entries)).encode())

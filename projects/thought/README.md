@@ -1,8 +1,11 @@
 # THOUGHT: an annotated worked case
 
 An exact human prompt and one Agent response become the candidate THOUGHT work.
-Agent Art means art in which an Agent participates at the level of intention;
-a response or protocol pass alone does not establish that participation.
+The current [Agent Art definition](../../docs/AGENT_ART.md) requires an Agent's
+intention to enter as an artistic contribution alongside human intention,
+with equal artistic standing. A response or protocol pass alone does not
+establish that participation. The dated records below retain their original
+claims and evidence limits.
 
 This collection examines technical initiation and completion. It neither grades
 artworks nor proves intentional participation. Read [Guidance](../../GUIDANCE.md).
@@ -98,7 +101,11 @@ not established.
 
 The [diagnostic](studies/2026-09-20-model-acquisition.md) explains why a synthetic
 failure-handling PASS did not contradict that observation. Supported acquisition
-and product repair remain unresolved.
+and product repair were unresolved in the September 20 record.
+
+Editorial clarification, 2026-10-24: this historical diagnosis does not establish
+today's product status. Current implementation and repair status remain with
+Inshell; they were not revalidated in this editorial review.
 
 ## Follow-up, 2026-09-24
 

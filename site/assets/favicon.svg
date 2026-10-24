@@ -2,18 +2,17 @@
   <title id="title">Agent Art Work — Off grid</title>
   <style>
     :root { color-scheme: light dark; }
-    .paper { fill: #fbf9f4; }
     .ink { fill: #34312d; }
+    .escaped { fill: #a87632; }
     @media (prefers-color-scheme: dark) {
-      .paper { fill: #1c1b19; }
       .ink { fill: #ebe5da; }
+      .escaped { fill: #d9b66f; }
     }
   </style>
-  <rect class="paper" width="32" height="32" rx="2"/>
   <g class="ink">
     <circle cx="7" cy="9" r="2.2"/>
     <circle cx="15" cy="9" r="2.2"/>
-    <circle cx="26" cy="5" r="2.2"/>
+    <circle class="escaped" cx="26" cy="5" r="2.2"/>
     <circle cx="7" cy="17" r="2.2"/>
     <circle cx="15" cy="17" r="2.2"/>
     <circle cx="23" cy="17" r="2.2"/>

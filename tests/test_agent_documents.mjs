@@ -38,6 +38,17 @@ test('index revision describes the serialized contract and builds are determinis
   assert.deepEqual(JSON.parse(first.indexBytes), first.index);
 });
 
+test('the repository rename updates source links without changing schema or document identity', () => {
+  const result = buildAgentDocuments([fixture()]);
+  const document = JSON.parse(result.documents.get('test-record'));
+  assert.equal(result.index.schema, 'agent-art-lab.index/v1');
+  assert.equal(document.schema, 'agent-art-lab.document/v1');
+  assert.equal(document.id, 'test-record');
+  assert.equal(document.page, '/projects/test/record.html');
+  assert.equal(document.source.url, 'https://github.com/agent-art-work/agentart.work/blob/main/projects/test/record.md');
+  assert.equal(result.index.documents[0].download.url, '/documents/test-record.json');
+});
+
 test('a consumer can recompute the advertised index revision from fetched bytes', () => {
   const result = buildAgentDocuments([fixture({ title: '雪 / café / 🎨' })]);
   const { revision, ...unsigned } = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(result.indexBytes));
@@ -75,7 +86,7 @@ test('study status and evidence remain in both discovery and the complete docume
 });
 
 test('exports default to the domain root and retain explicit project-path support', () => {
-  for (const basePath of ['', '/Agent-Art-Lab']) {
+  for (const basePath of ['', '/Agent-Art-Lab', '/agentart.work']) {
     const page = `${basePath}/projects/test/record.html`;
     const result = buildAgentDocuments([fixture({ page })], basePath ? { basePath } : undefined);
     const descriptor = result.index.documents[0];
@@ -110,6 +121,8 @@ test('unsafe identifiers, source paths, duplicate IDs and duplicate sources fail
   }
   assert.throws(() => buildAgentDocuments([fixture(), fixture({ path: 'other.md' })]));
   assert.throws(() => buildAgentDocuments([fixture(), fixture({ id: 'other-record' })]));
-  assert.throws(() => buildAgentDocuments([fixture()], { basePath: '/../bad' }));
+  for (const basePath of ['/../bad', '/.', '/..', '/site/../bad', '/site/./bad', '/site/', '/site//bad']) {
+    assert.throws(() => buildAgentDocuments([fixture()], { basePath }), basePath);
+  }
   assert.equal(documentId('docs/AGENT_ACCESS.md'), 'docs-agent-access');
 });

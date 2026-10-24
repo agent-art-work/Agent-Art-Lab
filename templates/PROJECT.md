@@ -4,7 +4,8 @@
 - Artistic premise:
 - How might Agent intention enter the work?
 - What would be fixed execution or infrastructure only?
-- Human–Agent relation chosen by this work, if any:
+- How do human and Agent intentions have equal artistic standing and consequence?
+- Roles, control and permissions chosen by this work:
 - Materials, surfaces and preservation approach:
 - Project repository/tooling owner:
 - Relevant prior studies and sources:
@@ -18,3 +19,5 @@
 
 Do not invent a work, operator mandate, agent intent or live authority merely
 to complete the template. A proposed intake can contain explicit unknowns.
+This is an optional study aid, not an entry requirement for Agent Art. The
+artist chooses whether and how to present evidence; the audience judges.

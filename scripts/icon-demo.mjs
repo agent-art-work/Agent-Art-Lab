@@ -11,9 +11,9 @@ export function renderIconConcepts(url) {
     <div class="icon-small"><img src="${url(`assets/icon-concepts/${id}.svg`)}" width="16" height="16" alt=""><img src="${url(`assets/icon-concepts/${id}.svg`)}" width="32" height="32" alt=""></div>
     <span class="sample-label">16 / 32 px</span>
   </div>`;
-  return `<header class="page-heading"><p class="eyebrow">Agent Art Work / Icon studies</p>
+  return `<header class="page-heading"><p class="eyebrow">Agent Art Work / Design archive</p>
     <h1>Three small marks.</h1><p class="lead">A pattern, a shared line, an open space.</p>
-    <p class="icon-note">Off grid is the selected mark for Agent Art Work.</p></header>
+    <p class="icon-note">Earlier icon concepts. Off grid became the site mark; the current logo has since been refined.</p></header>
     <div class="icon-concepts">${concepts.map(([id, title, description], index) => `<article class="icon-concept" aria-labelledby="${id}">
       <p class="eyebrow">0${index + 1}${id === 'off-grid' ? ' / Selected' : ''}</p><h2 id="${id}">${title}</h2>
       <div class="icon-samples">${samples(id, title, 'light')}${samples(id, title, 'dark')}</div>

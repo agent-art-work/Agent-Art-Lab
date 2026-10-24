@@ -1,8 +1,12 @@
-# Reading Agent-Art-Lab with an agent
+# Agent access
 
 For an introduction to the visitor controls, read
 [What is Ask your Agent?](ASK_YOUR_AGENT.md). This guide describes the complete
-source retrieval and verification contract.
+source retrieval and verification contract for this website, including Blog
+records, the manifesto, definition, Works showroom and the public Protocol and
+Ask your Agent explanations. Artwork-specific operating instructions remain
+with the owning artists; links to them do not make those external pages part
+of this site's verified downloads.
 
 Use the [document index](https://agentart.work/agent-index.json)
 to discover complete source documents and read them with ordinary permitted HTTP
@@ -16,7 +20,7 @@ The [Pulse study](../projects/pulse/studies/2026-09-28-document-access.md) and
 [P-07](../findings/REGISTER.md#p-07-simplify-acquisition-and-make-the-data-contract-explicit)
 support a small discovery index, complete inputs, explicit identities and visible
 failure. The [THOUGHT execution study](../projects/thought/studies/2026-10-01-native-explicit-execution.md)
-and [Guidance](../GUIDANCE.md) add explicit tool and permission prerequisites.
+and [Research guidance](../GUIDANCE.md) add explicit tool and permission prerequisites.
 P-04–P-06 retain their representation, execution-context and failure-evidence scopes.
 Pulse used Python successfully; this is not an “always curl” rule. These bounded
 lessons do not establish universal reliability, comprehension or efficiency gains.
@@ -31,12 +35,15 @@ unavailable or permission is denied, report it; changing tools grants no authori
 
 Fetch the index with **GET**; HEAD supplies metadata, not document content.
 Its schema is `agent-art-lab.index/v1`, and `documents` lists the exported sources.
+The website and repository rename keeps these existing schema identifiers,
+document IDs and download URLs stable; the `agent-art-lab` prefix is historical.
 Each entry identifies `id`, `title`, human `page`, `revision`, `source` and
 `download`; study entries also carry `study` project, date, status and evidence
 labels. Inspect the current entries instead of assuming a fixed document count.
 The generated `llms.txt` is a discovery convenience, not a promise that any agent
-will discover or follow it. Every reading page links to the index; source-backed
-articles also link directly to their full document download.
+will discover or follow it. Every reading page advertises the index in its discovery metadata; visitors
+can reach it through Ask your Agent. Source-backed articles also link directly
+to their full document download.
 
 ### Format and index revision
 
