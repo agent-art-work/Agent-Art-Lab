@@ -14,8 +14,8 @@ import { renderIconConcepts } from './icon-demo.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const sdkRoot = path.dirname(createRequire(import.meta.url).resolve('@agent-art/protocol'));
 // Immutable package paths keep its relative imports on the same cache version.
-const sdkAssetPath = 'assets/agent-art-sdk/0.1.5-flat-label.1';
-if (JSON.parse(readFileSync(path.join(sdkRoot, 'package.json'), 'utf8')).version !== '0.1.5-flat-label.1') {
+const sdkAssetPath = 'assets/agent-art-sdk/0.1.5-alpha.2';
+if (JSON.parse(readFileSync(path.join(sdkRoot, 'package.json'), 'utf8')).version !== '0.1.5-alpha.2') {
   throw new Error('The SDK asset path must match the installed immutable package version.');
 }
 const output = path.join(root, '_site');
@@ -163,7 +163,7 @@ if (!agentPrompt) throw new Error('The access guide must contain the homepage ag
 rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
 cpSync(path.join(root, 'site/assets'), path.join(output, 'assets'), { recursive: true });
-for (const file of ['index.mjs', 'clients.mjs', 'reading.mjs', 'reading-ui.mjs', 'reading.css']) {
+for (const file of ['index.mjs', 'clients.mjs', 'reading.mjs', 'reading-ui.mjs', 'reading.css', 'LICENSE']) {
   mkdirSync(path.join(output, sdkAssetPath), { recursive: true });
   cpSync(path.join(sdkRoot, file), path.join(output, sdkAssetPath, file));
 }

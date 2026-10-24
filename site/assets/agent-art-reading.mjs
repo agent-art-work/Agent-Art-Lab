@@ -1,4 +1,4 @@
-import { mountReading } from './agent-art-sdk/0.1.5-flat-label.1/reading-ui.mjs';
+import { mountReading } from './agent-art-sdk/0.1.5-alpha.2/reading-ui.mjs';
 import work from './agent-art-reading-work.mjs';
 
 const element = document.querySelector('#ask-your-agent');

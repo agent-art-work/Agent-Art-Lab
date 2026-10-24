@@ -47,8 +47,8 @@ judgment remains outside the Protocol's authority.
 
 ## Development and adoption
 
-The separate `agent-art-protocol` repository owns the specification, SDK and
-releases. This website owns its public explanations and integration.
+The separate [agent-art-protocol repository](https://github.com/agent-art-work/agent-art-protocol)
+owns the specification, SDK and releases. This website owns its public explanations and integration.
 
 An artwork's own creation protocol, renderer, receipts or chain records remain
 with its owning project. For example, Inshell documents THOUGHT's participation
@@ -56,13 +56,16 @@ and preservation on its site. Those mechanisms are not requirements imposed
 on every Agent Art work, and this overview does not qualify their integration
 with the shared Protocol.
 
-This site bundles the reading SDK as a pinned candidate archive. This website
-release is not a standalone SDK registry release and grants no reuse license. The [integration notes](../site/README.md#build-and-preview) record
-the installed version and checks.
+The reading SDK has a public
+[MIT alpha release](https://github.com/agent-art-work/agent-art-protocol/releases/tag/v0.1.5-alpha.2),
+installed from a versioned archive rather than npm. Its license covers original
+SDK code and documentation; artwork and site-content rights remain separate.
+The [integration notes](../site/README.md#build-and-preview) record this site's
+pinned archive, checks and deployment status.
 
 ## Status of this overview
 
-Updated 2026-10-23 from Protocol source inspection and the site’s installed
-reading integration. The wider architecture remains a candidate. This public
+Updated 2026-10-24 from Protocol source inspection, the public reading alpha
+and this site's local integration checks. The wider architecture remains a candidate. This public
 summary does not constitute a new client qualification or publish private
 implementation and trial records.

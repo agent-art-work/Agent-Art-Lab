@@ -41,9 +41,12 @@ same invitation and copy it manually.
 Protocol supplies the component and handoff builders. Each site owns its
 context, sources, theme and placement, and must make clear what it shares.
 
-This site bundles a pinned SDK candidate, with no standalone registry release
-or reuse license. The [integration notes](../site/README.md#build-and-preview)
-record the installed version.
+The reading SDK is available as a
+[versioned MIT alpha](https://github.com/agent-art-work/agent-art-protocol/releases/tag/v0.1.5-alpha.2).
+Install its exact archive and retain the license notice; there is no npm registry
+release. The license covers SDK code and documentation, not this site's content
+or artworks. The [integration notes](../site/README.md#build-and-preview) record
+the pinned version and checks.
 
 Technical references for this site:
 

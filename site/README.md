@@ -114,9 +114,9 @@ The label underlines on hover; the three actions underline by default and
 remove it on hover. Hover hints and the three-second inline confirmation remain.
 The tuning desk is internal design material and is not part of the v2 pages.
 
-The broader v2 is currently a local preview. Repository renaming does not
-publish these page changes or qualify a new SDK. See HANDOFF for the current
-candidate and checks. Historical release records below retain their dates.
+The v2 website shipped as `v2.0.0-rc.1`; the newer SDK integration described
+below is approved for rollout. See HANDOFF and the integration PR for deployment status.
+Historical release records below retain their dates.
 
 ## Selected reading typography
 
@@ -142,23 +142,35 @@ widths and the retained reading controls in light/dark. Preview at port 8876.
 The reading invitation continues to reference the published domain; local
 manuscript additions are not available to a receiving Agent there until release.
 
-The v2 release candidate pins `@agent-art/protocol@0.1.5-flat-label.1` from
-`vendor/agent-art-protocol-0.1.5-flat-label.1.tgz`, SHA-256
-`be292abbca9f934dbc75e4bbe6f544011251043a75a89de608f8cbb8c60d02ea`. The five browser files are copied byte-for-byte from the
-installed package, and only documented theme variables are set on the mount.
-The public adapter, client routes and canonical prompt are unchanged apart
-from the immutable SDK import path. Package identity, archive digest and final
-local qualification are recorded in HANDOFF and the approved design record.
-Production rollout of this redesign and bundled candidate was authorized on
-2026-10-24. This is a website release, not a standalone SDK release or npm
-publication. Earlier local-only notes describe their original qualification.
+The integration pins public MIT `@agent-art/protocol@0.1.5-alpha.2` from
+`vendor/agent-art-protocol-0.1.5-alpha.2.tgz` (18,235 bytes), SHA-256
+`eadf80c14307b635bc69589b3a33ac747314b73fdef96cfb05f169337ffcc2b2`.
+Use the final published archive, not the earlier preparation-only candidate.
+The [release and integration guide](https://github.com/agent-art-work/agent-art-protocol/releases/tag/v0.1.5-alpha.2)
+document the public theme hooks. The lock retains archive integrity. There is
+no npm registry publication; install the exact vendored archive with scripts
+disabled. Its MIT license applies to original SDK code/documentation, not this
+site's content or artworks.
 
-The candidate retains native desktop-prefill links, exact Copy with a polite
+The build copies all five browser files and the MIT `LICENSE` byte-for-byte
+from the same installed package into the immutable version directory. The
+adapter, client routes and canonical invitation remain unchanged apart from
+the versioned SDK import path. The site uses public theme hooks only. The
+approved flat geometry, equal visible gaps, 14px text and stable Copy/Copied
+width are retained; narrow containers wrap label/action groups without
+shrinking the text. Label and action tints are independently transparent.
+
+The operator authorized this alpha integration's website rollout on 2026-10-24,
+replacing the `0.1.5-flat-label.1` integration in `v2.0.0-rc.1`. Verify the
+integration PR's deployment before treating the new version as live. Historical
+archives remain unchanged. No SDK release, registry publication or live Agent
+trial is performed by installing this site dependency.
+
+The component retains native desktop-prefill links, exact Copy with a polite
 announcement, and selected manual text on clipboard denial. The complete
 original prompt remains usable without JavaScript. Browser qualification uses
 synthetic clipboard writes and canceled native navigation; it does not claim
-a fresh receiving-app trial. Earlier 0.1.3/0.1.4 candidate archives remain
-unchanged as historical local integrations.
+a fresh receiving-app trial.
 
 Earlier released integrations: on 2026-10-21 the operator authorized committing,
 pushing and deploying the
@@ -218,7 +230,7 @@ paragraphs. The generated adapter URL and its Work import carry content hashes
 so the newly built homepage requests its matching prompt assets. Those hashes
 do not refresh an already-mounted page or an old HTML document by themselves.
 The SDK's five browser files are copied unchanged under
-`assets/agent-art-sdk/0.1.5-flat-label.1/`. Versioning the package directory gives its relative
+`assets/agent-art-sdk/0.1.5-alpha.2/`. Versioning the package directory gives its relative
 module imports and stylesheet the same cache boundary. On an SDK update, change
 that path in the build, adapter and output allowlist together with the package
 pin; never overwrite a released package with different bytes.
